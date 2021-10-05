@@ -1,0 +1,78 @@
+﻿@{
+    ViewBag.Title = "Transaction";
+}
+
+@section Styles{
+    <link href="~/admin-app/controllers/transaction/index.css" rel="stylesheet" asp-append-version="true" />
+}
+
+@section Scripts{
+    <script src="~/admin-app/controllers/transaction/index.js"></script>
+    <script>
+        var transactionObj = new TransactionController();
+        transactionObj.initialize();
+    </script>
+
+}
+
+<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+    <div class="container" id="kt_content_container">
+        <div class="d-flex flex-wrap flex-stack pb-5">
+            <div class="d-flex flex-wrap align-items-center my-1">
+                <div class="d-flex align-items-center position-relative my-1">
+                    <span class="svg-icon svg-icon-3 position-absolute ms-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <rect x="0" y="0" width="24" height="24"></rect>
+                                <path d="M14.2928932,16.7071068 C13.9023689,16.3165825 13.9023689,15.6834175 14.2928932,15.2928932 C14.6834175,14.9023689 15.3165825,14.9023689 15.7071068,15.2928932 L19.7071068,19.2928932 C20.0976311,19.6834175 20.0976311,20.3165825 19.7071068,20.7071068 C19.3165825,21.0976311 18.6834175,21.0976311 18.2928932,20.7071068 L14.2928932,16.7071068 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"></path>
+                                <path d="M11,16 C13.7614237,16 16,13.7614237 16,11 C16,8.23857625 13.7614237,6 11,6 C8.23857625,6 6,8.23857625 6,11 C6,13.7614237 8.23857625,16 11,16 Z M11,18 C7.13400675,18 4,14.8659932 4,11 C4,7.13400675 7.13400675,4 11,4 C14.8659932,4 18,7.13400675 18,11 C18,14.8659932 14.8659932,18 11,18 Z" fill="#000000" fill-rule="nonzero"></path>
+                            </g>
+                        </svg>
+                    </span>
+                    <input type="text" id="txt-search-keyword" class="form-control form-control-white form-control-sm w-150px ps-9" placeholder="Search">                
+                </div>
+            </div>
+        </div>
+        <div class="card mb-5 mb-xl-10">
+            <div class="card-body py-3">
+                <div class="table-responsive">
+                    <table class="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
+                        <thead>
+                            <tr class="fw-bolder text-muted">
+                                <th class="min-w-150px">Sponsor<br />Email</th>
+                                <th class="min-w-140px">Total</th>
+                                <th class="min-w-100px">Type</th>
+                                <th class="min-w-120px">Wallet Receiving</th>
+                                <th class="min-w-100px">Create Date</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbl-content"></tbody>
+                    </table>
+                </div>
+                @await Component.InvokeAsync("Paging")
+            </div>
+        </div>
+    </div>
+</div>
+
+<script id="table-template" type="x-tmpl-mustache">
+    <tr>
+        <td>
+            <a href="#" class="text-dark fw-bolder text-hover-primary d-block fs-7">{{Sponsor}}</a>
+            <span class="text-muted fw-bold text-muted d-block fs-7">{{UserName}}</span>
+        </td>
+        <td>
+            <a href="#" class="text-dark fw-bolder text-hover-primary d-block fs-7">{{Amount}} {{UnitName}}</a>
+        </td>
+        <td>
+            <a href="#" class="text-dark fw-bolder text-hover-primary d-block fs-7">{{Type}}</a>
+        </td>
+        <td>
+            <a href="#" class="text-dark fw-bolder text-hover-primary d-block fs-7">{{AddressReceiving}}</a>
+            @*<span class="text-muted fw-bold text-muted d-block fs-7">{{TransactionHash}}</span>*@
+        </td>
+        <td>
+            <span class="text-muted fw-bold text-muted d-block fs-7">{{DateCreated}}</span>
+        </td>
+    </tr>
+</script>

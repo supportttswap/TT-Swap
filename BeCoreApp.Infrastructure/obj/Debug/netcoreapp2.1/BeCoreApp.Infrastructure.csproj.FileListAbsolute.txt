@@ -1,0 +1,10 @@
+D:\Projects\TTSwap\BeCoreApp.Infrastructure\bin\Debug\netcoreapp2.1\BeCoreApp.Infrastructure.deps.json
+D:\Projects\TTSwap\BeCoreApp.Infrastructure\bin\Debug\netcoreapp2.1\BeCoreApp.Infrastructure.dll
+D:\Projects\TTSwap\BeCoreApp.Infrastructure\bin\Debug\netcoreapp2.1\BeCoreApp.Infrastructure.pdb
+D:\Projects\TTSwap\BeCoreApp.Infrastructure\obj\Debug\netcoreapp2.1\BeCoreApp.Infrastructure.csproj.AssemblyReference.cache
+D:\Projects\TTSwap\BeCoreApp.Infrastructure\obj\Debug\netcoreapp2.1\BeCoreApp.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\TTSwap\BeCoreApp.Infrastructure\obj\Debug\netcoreapp2.1\BeCoreApp.Infrastructure.AssemblyInfoInputs.cache
+D:\Projects\TTSwap\BeCoreApp.Infrastructure\obj\Debug\netcoreapp2.1\BeCoreApp.Infrastructure.AssemblyInfo.cs
+D:\Projects\TTSwap\BeCoreApp.Infrastructure\obj\Debug\netcoreapp2.1\BeCoreApp.Infrastructure.csproj.CoreCompileInputs.cache
+D:\Projects\TTSwap\BeCoreApp.Infrastructure\obj\Debug\netcoreapp2.1\BeCoreApp.Infrastructure.dll
+D:\Projects\TTSwap\BeCoreApp.Infrastructure\obj\Debug\netcoreapp2.1\BeCoreApp.Infrastructure.pdb

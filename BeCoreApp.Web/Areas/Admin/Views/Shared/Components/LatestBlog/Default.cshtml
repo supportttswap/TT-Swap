@@ -1,0 +1,39 @@
+﻿@model List<BeCoreApp.Application.ViewModels.Blog.BlogViewModel>
+
+@section Styles{
+    <style>
+        .box-descriptoin {
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 6;
+            height: 116px;
+            font-size: 13px !important;
+        }
+    </style>
+}
+
+<div class="card card-flush card-p-0 shadow-none bg-transparent mb-5">
+    <div class="card-header align-items-center border-0">
+        <h3 class="card-title fw-bolder text-success fs-3">Latest News</h3>
+    </div>
+    <div class="card-body py-0">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-12 mb-7 pb-5">
+                <div class="card-xl-stretch me-md-6">
+                    <a class="d-block overlay" data-fslightbox="lightbox-hot-sales" href="/admin/support/blogdetail/@item.Id">
+                        <div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded min-h-175px" style="background-image:url('@item.Image')"></div>
+                        <div class="overlay-layer card-rounded bg-dark bg-opacity-25">
+                            <i class="bi bi-eye-fill fs-2x text-white"></i>
+                        </div>
+                    </a>
+                    <div class="mt-5">
+                        <a href="/admin/support/blogdetail/@item.Id" class="fs-5 text-gray-800 fw-bolder text-hover-primary text-dark lh-base">@item.Name</a>
+                        <div class="fw-bold box-descriptoin text-gray-600 text-dark mt-3">@item.Description</div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,16 @@
+D:\Projects\TTSwap\BeCoreApp.Data\bin\Debug\netcoreapp2.1\BeCoreApp.Data.deps.json
+D:\Projects\TTSwap\BeCoreApp.Data\bin\Debug\netcoreapp2.1\BeCoreApp.Data.runtimeconfig.json
+D:\Projects\TTSwap\BeCoreApp.Data\bin\Debug\netcoreapp2.1\BeCoreApp.Data.runtimeconfig.dev.json
+D:\Projects\TTSwap\BeCoreApp.Data\bin\Debug\netcoreapp2.1\BeCoreApp.Data.dll
+D:\Projects\TTSwap\BeCoreApp.Data\bin\Debug\netcoreapp2.1\BeCoreApp.Data.pdb
+D:\Projects\TTSwap\BeCoreApp.Data\bin\Debug\netcoreapp2.1\BeCoreApp.Infrastructure.dll
+D:\Projects\TTSwap\BeCoreApp.Data\bin\Debug\netcoreapp2.1\BeCoreApp.Infrastructure.pdb
+D:\Projects\TTSwap\BeCoreApp.Data\obj\Debug\netcoreapp2.1\BeCoreApp.Data.csproj.AssemblyReference.cache
+D:\Projects\TTSwap\BeCoreApp.Data\obj\Debug\netcoreapp2.1\BeCoreApp.Data.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\TTSwap\BeCoreApp.Data\obj\Debug\netcoreapp2.1\BeCoreApp.Data.AssemblyInfoInputs.cache
+D:\Projects\TTSwap\BeCoreApp.Data\obj\Debug\netcoreapp2.1\BeCoreApp.Data.AssemblyInfo.cs
+D:\Projects\TTSwap\BeCoreApp.Data\obj\Debug\netcoreapp2.1\BeCoreApp.Data.csproj.CoreCompileInputs.cache
+D:\Projects\TTSwap\BeCoreApp.Data\obj\Debug\netcoreapp2.1\BeCoreApp.Data.csproj.CopyComplete
+D:\Projects\TTSwap\BeCoreApp.Data\obj\Debug\netcoreapp2.1\BeCoreApp.Data.dll
+D:\Projects\TTSwap\BeCoreApp.Data\obj\Debug\netcoreapp2.1\BeCoreApp.Data.pdb
+D:\Projects\TTSwap\BeCoreApp.Data\obj\Debug\netcoreapp2.1\BeCoreApp.Data.genruntimeconfig.cache

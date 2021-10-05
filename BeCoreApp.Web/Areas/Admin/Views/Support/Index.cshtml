@@ -1,0 +1,496 @@
+﻿@{
+    ViewBag.Title = "Support Center";
+}
+@section Styles{
+    <link href="~/admin-app/controllers/support/index.css" rel="stylesheet" asp-append-version="true" />
+}
+@section Scripts{
+    <script src="~/admin-app/controllers/support/index.js"></script>
+    <script>
+        var supportObj = new SupportController();
+        supportObj.initialize();
+    </script>
+}
+
+<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+    <div class="container" id="kt_content_container">
+        <div class="card mb-12">
+            <div class="card-body flex-column p-5">
+                <div class="d-flex align-items-center h-lg-300px p-5 p-lg-15">
+                    <div class="d-flex flex-column align-items-start justift-content-center flex-equal me-5">
+                        <h1 class="fw-bolder fs-4 fs-lg-1 text-gray-800 mb-3 mb-lg-5">How Can We Help You?</h1>
+                        <p class="fw-bold fs-4 text-gray-600 mb-2">Email: support@tt-swap.net</p>
+                    </div>
+                    <div class="flex-equal d-flex justify-content-center align-items-end ms-5">
+                        <img src="~/admin-side/demo3/dist/assets/media/svg/illustrations/sigma/question.svg" alt="" class="mw-100 mh-125px mh-lg-275px mb-lg-n12" />
+                    </div>
+                </div>
+                <div class="card-rounded bg-light d-flex flex-stack flex-wrap p-5">
+                    <ul class="nav flex-wrap border-transparent fw-bolder">
+                        <li class="nav-item my-1">
+                            <a class="btn btn-color-gray-600 btn-active-success btn-active-color-white fw-boldest fs-8 fs-lg-base nav-link px-3 px-lg-8 mx-1 text-uppercase active"
+                               data-bs-toggle="tab" href="#faq">FAQ</a>
+                        </li>
+                        <li class="nav-item my-1">
+                            <a class="btn btn-color-gray-600 btn-active-success btn-active-color-white fw-boldest fs-8 fs-lg-base nav-link px-3 px-lg-8 mx-1 text-uppercase"
+                               data-bs-toggle="tab" href="#video">Video</a>
+                        </li>
+                        <li class="nav-item my-1">
+                            <a class="btn btn-color-gray-600 btn-active-success btn-active-color-white fw-boldest fs-8 fs-lg-base nav-link px-3 px-lg-8 mx-1 text-uppercase"
+                               data-bs-toggle="tab" href="#ticket">Tickets</a>
+                        </li>
+                        <li class="nav-item my-1">
+                            <a class="btn btn-color-gray-600 btn-active-danger btn-active-color-white fw-boldest fs-8 fs-lg-base nav-link px-3 px-lg-8 mx-1 text-uppercase"
+                               data-bs-toggle="tab" href="#createticket">Create Ticket</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-content">
+            <div id="faq" class="tab-pane fade show active">
+                <div class="card">
+                    <div class="card-body p-10 p-lg-15">
+                        <div class="mb-17">
+                            <div class="mb-15">
+                                <h4 class="fs-2x text-gray-800 w-bolder mb-6">Frequesntly Asked Questions</h4>
+                                @*<p class="fw-bold fs-4 text-gray-600 mb-2">First, a disclaimer – the entire process of writing a blog post often takes more than a couple of hours, even if you can type eighty words as per minute and your writing skills are sharp.</p>*@
+                            </div>
+                            <div class="row mb-12">
+                                <div class="col-md-12 pe-md-10 mb-10 mb-md-0">
+                                    <div class="m-0">
+                                        <div class="d-flex align-items-center collapsible py-3 toggle mb-0" data-bs-toggle="collapse" data-bs-target="#kt_job_4_1">
+                                            <div class="btn btn-sm btn-icon mw-20px btn-active-color-success me-5">
+                                                <span class="svg-icon toggle-on svg-icon-success svg-icon-1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                        <path opacity="0.25" d="M6.54184 2.36899C4.34504 2.65912 2.65912 4.34504 2.36899 6.54184C2.16953 8.05208 2 9.94127 2 12C2 14.0587 2.16953 15.9479 2.36899 17.4582C2.65912 19.655 4.34504 21.3409 6.54184 21.631C8.05208 21.8305 9.94127 22 12 22C14.0587 22 15.9479 21.8305 17.4582 21.631C19.655 21.3409 21.3409 19.655 21.631 17.4582C21.8305 15.9479 22 14.0587 22 12C22 9.94127 21.8305 8.05208 21.631 6.54184C21.3409 4.34504 19.655 2.65912 17.4582 2.36899C15.9479 2.16953 14.0587 2 12 2C9.94127 2 8.05208 2.16953 6.54184 2.36899Z" fill="#12131A" />
+                                                        <path d="M8 13C7.44772 13 7 12.5523 7 12C7 11.4477 7.44772 11 8 11H16C16.5523 11 17 11.4477 17 12C17 12.5523 16.5523 13 16 13H8Z" fill="#12131A" />
+                                                    </svg>
+                                                </span>
+                                                <span class="svg-icon toggle-off svg-icon-1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                        <path opacity="0.25" fill-rule="evenodd" clip-rule="evenodd" d="M6.54184 2.36899C4.34504 2.65912 2.65912 4.34504 2.36899 6.54184C2.16953 8.05208 2 9.94127 2 12C2 14.0587 2.16953 15.9479 2.36899 17.4582C2.65912 19.655 4.34504 21.3409 6.54184 21.631C8.05208 21.8305 9.94127 22 12 22C14.0587 22 15.9479 21.8305 17.4582 21.631C19.655 21.3409 21.3409 19.655 21.631 17.4582C21.8305 15.9479 22 14.0587 22 12C22 9.94127 21.8305 8.05208 21.631 6.54184C21.3409 4.34504 19.655 2.65912 17.4582 2.36899C15.9479 2.16953 14.0587 2 12 2C9.94127 2 8.05208 2.16953 6.54184 2.36899Z" fill="#12131A" />
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12 17C12.5523 17 13 16.5523 13 16V13H16C16.5523 13 17 12.5523 17 12C17 11.4477 16.5523 11 16 11H13V8C13 7.44772 12.5523 7 12 7C11.4477 7 11 7.44772 11 8V11H8C7.44772 11 7 11.4477 7 12C7 12.5523 7.44771 13 8 13H11V16C11 16.5523 11.4477 17 12 17Z" fill="#12131A" />
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <h4 class="text-gray-700 fw-bolder cursor-pointer mb-0">1. Wallet Support ?</h4>
+                                        </div>
+                                        <div id="kt_job_4_1" class="collapse show fs-6 ms-1">
+                                            <div class="mb-4 text-gray-600 fw-bold fs-6 ps-10">Currently, We only support Metamask on PC and Trust Wallet on smartphones</div>
+                                        </div>
+                                        <div class="separator separator-dashed"></div>
+                                    </div>
+                                    <div class="m-0">
+                                        <div class="d-flex align-items-center collapsible py-3 toggle collapsed mb-0" data-bs-toggle="collapse" data-bs-target="#kt_job_4_2">
+                                            <div class="btn btn-sm btn-icon mw-20px btn-active-color-success me-5">
+                                                <span class="svg-icon toggle-on svg-icon-success svg-icon-1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                        <path opacity="0.25" d="M6.54184 2.36899C4.34504 2.65912 2.65912 4.34504 2.36899 6.54184C2.16953 8.05208 2 9.94127 2 12C2 14.0587 2.16953 15.9479 2.36899 17.4582C2.65912 19.655 4.34504 21.3409 6.54184 21.631C8.05208 21.8305 9.94127 22 12 22C14.0587 22 15.9479 21.8305 17.4582 21.631C19.655 21.3409 21.3409 19.655 21.631 17.4582C21.8305 15.9479 22 14.0587 22 12C22 9.94127 21.8305 8.05208 21.631 6.54184C21.3409 4.34504 19.655 2.65912 17.4582 2.36899C15.9479 2.16953 14.0587 2 12 2C9.94127 2 8.05208 2.16953 6.54184 2.36899Z" fill="#12131A" />
+                                                        <path d="M8 13C7.44772 13 7 12.5523 7 12C7 11.4477 7.44772 11 8 11H16C16.5523 11 17 11.4477 17 12C17 12.5523 16.5523 13 16 13H8Z" fill="#12131A" />
+                                                    </svg>
+                                                </span>
+                                                <span class="svg-icon toggle-off svg-icon-1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                        <path opacity="0.25" fill-rule="evenodd" clip-rule="evenodd" d="M6.54184 2.36899C4.34504 2.65912 2.65912 4.34504 2.36899 6.54184C2.16953 8.05208 2 9.94127 2 12C2 14.0587 2.16953 15.9479 2.36899 17.4582C2.65912 19.655 4.34504 21.3409 6.54184 21.631C8.05208 21.8305 9.94127 22 12 22C14.0587 22 15.9479 21.8305 17.4582 21.631C19.655 21.3409 21.3409 19.655 21.631 17.4582C21.8305 15.9479 22 14.0587 22 12C22 9.94127 21.8305 8.05208 21.631 6.54184C21.3409 4.34504 19.655 2.65912 17.4582 2.36899C15.9479 2.16953 14.0587 2 12 2C9.94127 2 8.05208 2.16953 6.54184 2.36899Z" fill="#12131A" />
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12 17C12.5523 17 13 16.5523 13 16V13H16C16.5523 13 17 12.5523 17 12C17 11.4477 16.5523 11 16 11H13V8C13 7.44772 12.5523 7 12 7C11.4477 7 11 7.44772 11 8V11H8C7.44772 11 7 11.4477 7 12C7 12.5523 7.44771 13 8 13H11V16C11 16.5523 11.4477 17 12 17Z" fill="#12131A" />
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <h4 class="text-gray-700 fw-bolder cursor-pointer mb-0">2. How do I calculate my BNB reward each time of claim?</h4>
+                                        </div>
+                                        <div id="kt_job_4_2" class="collapse fs-6 ms-1">
+                                            <div class="mb-4 text-gray-600 fw-bold fs-6 ps-10">You can claim your BNB amount equivalently base on the ratio of your holding TTS token. For example, if you hold 10% of total TTS tokens, and it has 1,000 BNB in the pool, you will get 10%*1,000 = 100 BNB out of the BNB reward pool.</div>
+                                        </div>
+                                        <div class="separator separator-dashed"></div>
+                                    </div>
+                                    <div class="m-0">
+                                        <div class="d-flex align-items-center collapsible py-3 toggle collapsed mb-0" data-bs-toggle="collapse" data-bs-target="#kt_job_4_3">
+                                            <div class="btn btn-sm btn-icon mw-20px btn-active-color-success me-5">
+                                                <span class="svg-icon toggle-on svg-icon-success svg-icon-1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                        <path opacity="0.25" d="M6.54184 2.36899C4.34504 2.65912 2.65912 4.34504 2.36899 6.54184C2.16953 8.05208 2 9.94127 2 12C2 14.0587 2.16953 15.9479 2.36899 17.4582C2.65912 19.655 4.34504 21.3409 6.54184 21.631C8.05208 21.8305 9.94127 22 12 22C14.0587 22 15.9479 21.8305 17.4582 21.631C19.655 21.3409 21.3409 19.655 21.631 17.4582C21.8305 15.9479 22 14.0587 22 12C22 9.94127 21.8305 8.05208 21.631 6.54184C21.3409 4.34504 19.655 2.65912 17.4582 2.36899C15.9479 2.16953 14.0587 2 12 2C9.94127 2 8.05208 2.16953 6.54184 2.36899Z" fill="#12131A" />
+                                                        <path d="M8 13C7.44772 13 7 12.5523 7 12C7 11.4477 7.44772 11 8 11H16C16.5523 11 17 11.4477 17 12C17 12.5523 16.5523 13 16 13H8Z" fill="#12131A" />
+                                                    </svg>
+                                                </span>
+                                                <span class="svg-icon toggle-off svg-icon-1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                        <path opacity="0.25" fill-rule="evenodd" clip-rule="evenodd" d="M6.54184 2.36899C4.34504 2.65912 2.65912 4.34504 2.36899 6.54184C2.16953 8.05208 2 9.94127 2 12C2 14.0587 2.16953 15.9479 2.36899 17.4582C2.65912 19.655 4.34504 21.3409 6.54184 21.631C8.05208 21.8305 9.94127 22 12 22C14.0587 22 15.9479 21.8305 17.4582 21.631C19.655 21.3409 21.3409 19.655 21.631 17.4582C21.8305 15.9479 22 14.0587 22 12C22 9.94127 21.8305 8.05208 21.631 6.54184C21.3409 4.34504 19.655 2.65912 17.4582 2.36899C15.9479 2.16953 14.0587 2 12 2C9.94127 2 8.05208 2.16953 6.54184 2.36899Z" fill="#12131A" />
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12 17C12.5523 17 13 16.5523 13 16V13H16C16.5523 13 17 12.5523 17 12C17 11.4477 16.5523 11 16 11H13V8C13 7.44772 12.5523 7 12 7C11.4477 7 11 7.44772 11 8V11H8C7.44772 11 7 11.4477 7 12C7 12.5523 7.44771 13 8 13H11V16C11 16.5523 11.4477 17 12 17Z" fill="#12131A" />
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <h4 class="text-gray-700 fw-bolder cursor-pointer mb-0">
+                                                3. What is the BNB pool of TT-SWAP SYSTEM?
+                                            </h4>
+                                        </div>
+                                        <div id="kt_job_4_3" class="collapse fs-6 ms-1">
+                                            <div class="mb-4 text-gray-600 fw-bold fs-6 ps-10">
+                                                30% of buy, sell, or transfer transactions will be directly distributed to all TTS holders in BNB by users' wallet address based on the TTS ratio you hold.
+                                            </div>
+                                        </div>
+                                        <div class="separator separator-dashed"></div>
+                                    </div>
+                                    <div class="m-0">
+                                        <div class="d-flex align-items-center collapsible py-3 toggle collapsed mb-0" data-bs-toggle="collapse" data-bs-target="#kt_job_4_4">
+                                            <div class="btn btn-sm btn-icon mw-20px btn-active-color-success me-5">
+                                                <span class="svg-icon toggle-on svg-icon-success svg-icon-1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                        <path opacity="0.25" d="M6.54184 2.36899C4.34504 2.65912 2.65912 4.34504 2.36899 6.54184C2.16953 8.05208 2 9.94127 2 12C2 14.0587 2.16953 15.9479 2.36899 17.4582C2.65912 19.655 4.34504 21.3409 6.54184 21.631C8.05208 21.8305 9.94127 22 12 22C14.0587 22 15.9479 21.8305 17.4582 21.631C19.655 21.3409 21.3409 19.655 21.631 17.4582C21.8305 15.9479 22 14.0587 22 12C22 9.94127 21.8305 8.05208 21.631 6.54184C21.3409 4.34504 19.655 2.65912 17.4582 2.36899C15.9479 2.16953 14.0587 2 12 2C9.94127 2 8.05208 2.16953 6.54184 2.36899Z" fill="#12131A" />
+                                                        <path d="M8 13C7.44772 13 7 12.5523 7 12C7 11.4477 7.44772 11 8 11H16C16.5523 11 17 11.4477 17 12C17 12.5523 16.5523 13 16 13H8Z" fill="#12131A" />
+                                                    </svg>
+                                                </span>
+                                                <span class="svg-icon toggle-off svg-icon-1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                        <path opacity="0.25" fill-rule="evenodd" clip-rule="evenodd" d="M6.54184 2.36899C4.34504 2.65912 2.65912 4.34504 2.36899 6.54184C2.16953 8.05208 2 9.94127 2 12C2 14.0587 2.16953 15.9479 2.36899 17.4582C2.65912 19.655 4.34504 21.3409 6.54184 21.631C8.05208 21.8305 9.94127 22 12 22C14.0587 22 15.9479 21.8305 17.4582 21.631C19.655 21.3409 21.3409 19.655 21.631 17.4582C21.8305 15.9479 22 14.0587 22 12C22 9.94127 21.8305 8.05208 21.631 6.54184C21.3409 4.34504 19.655 2.65912 17.4582 2.36899C15.9479 2.16953 14.0587 2 12 2C9.94127 2 8.05208 2.16953 6.54184 2.36899Z" fill="#12131A" />
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12 17C12.5523 17 13 16.5523 13 16V13H16C16.5523 13 17 12.5523 17 12C17 11.4477 16.5523 11 16 11H13V8C13 7.44772 12.5523 7 12 7C11.4477 7 11 7.44772 11 8V11H8C7.44772 11 7 11.4477 7 12C7 12.5523 7.44771 13 8 13H11V16C11 16.5523 11.4477 17 12 17Z" fill="#12131A" />
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <h4 class="text-gray-700 fw-bolder cursor-pointer mb-0">
+                                                4. What about ecosystem of TTS?
+                                            </h4>
+                                        </div>
+                                        <div id="kt_job_4_4" class="collapse fs-6 ms-1">
+                                            <div class="mb-4 text-gray-600 fw-bold fs-6 ps-10">
+                                                Conclude DEFI exchange, NFT Product,  Staking, Farming, E-commerce etc
+                                            </div>
+                                        </div>
+                                        <div class="separator separator-dashed"></div>
+                                    </div>
+                                    <div class="m-0">
+                                        <div class="d-flex align-items-center collapsible py-3 toggle collapsed mb-0" data-bs-toggle="collapse" data-bs-target="#kt_job_4_5">
+                                            <div class="btn btn-sm btn-icon mw-20px btn-active-color-success me-5">
+                                                <span class="svg-icon toggle-on svg-icon-success svg-icon-1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                        <path opacity="0.25" d="M6.54184 2.36899C4.34504 2.65912 2.65912 4.34504 2.36899 6.54184C2.16953 8.05208 2 9.94127 2 12C2 14.0587 2.16953 15.9479 2.36899 17.4582C2.65912 19.655 4.34504 21.3409 6.54184 21.631C8.05208 21.8305 9.94127 22 12 22C14.0587 22 15.9479 21.8305 17.4582 21.631C19.655 21.3409 21.3409 19.655 21.631 17.4582C21.8305 15.9479 22 14.0587 22 12C22 9.94127 21.8305 8.05208 21.631 6.54184C21.3409 4.34504 19.655 2.65912 17.4582 2.36899C15.9479 2.16953 14.0587 2 12 2C9.94127 2 8.05208 2.16953 6.54184 2.36899Z" fill="#12131A" />
+                                                        <path d="M8 13C7.44772 13 7 12.5523 7 12C7 11.4477 7.44772 11 8 11H16C16.5523 11 17 11.4477 17 12C17 12.5523 16.5523 13 16 13H8Z" fill="#12131A" />
+                                                    </svg>
+                                                </span>
+                                                <span class="svg-icon toggle-off svg-icon-1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                        <path opacity="0.25" fill-rule="evenodd" clip-rule="evenodd" d="M6.54184 2.36899C4.34504 2.65912 2.65912 4.34504 2.36899 6.54184C2.16953 8.05208 2 9.94127 2 12C2 14.0587 2.16953 15.9479 2.36899 17.4582C2.65912 19.655 4.34504 21.3409 6.54184 21.631C8.05208 21.8305 9.94127 22 12 22C14.0587 22 15.9479 21.8305 17.4582 21.631C19.655 21.3409 21.3409 19.655 21.631 17.4582C21.8305 15.9479 22 14.0587 22 12C22 9.94127 21.8305 8.05208 21.631 6.54184C21.3409 4.34504 19.655 2.65912 17.4582 2.36899C15.9479 2.16953 14.0587 2 12 2C9.94127 2 8.05208 2.16953 6.54184 2.36899Z" fill="#12131A" />
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12 17C12.5523 17 13 16.5523 13 16V13H16C16.5523 13 17 12.5523 17 12C17 11.4477 16.5523 11 16 11H13V8C13 7.44772 12.5523 7 12 7C11.4477 7 11 7.44772 11 8V11H8C7.44772 11 7 11.4477 7 12C7 12.5523 7.44771 13 8 13H11V16C11 16.5523 11.4477 17 12 17Z" fill="#12131A" />
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <h4 class="text-gray-700 fw-bolder cursor-pointer mb-0">
+                                                5. When can I claim my BNB?
+                                            </h4>
+                                        </div>
+                                        <div id="kt_job_4_5" class="collapse fs-6 ms-1">
+                                            <div class="mb-4 text-gray-600 fw-bold fs-6 ps-10">
+                                                There are specific times you can claim depending on the following factors.
+                                                In the first seven days after TTS was listed on Pancake Swap or other exchanges, the collection time is every 24 hours.
+                                                Be aware that if you purchase a more than eligible amount of TTS TOKEN, your collection time will be moved back.
+                                                And if you sell all your TTS and buy back in, your collection date will be pushed years out into the future. This is not a bug. It's a feature that helps scalping prevention.
+                                            </div>
+                                        </div>
+                                        <div class="separator separator-dashed"></div>
+                                    </div>
+                                    <div class="m-0">
+                                        <div class="d-flex align-items-center collapsible py-3 toggle collapsed mb-0" data-bs-toggle="collapse" data-bs-target="#kt_job_4_6">
+                                            <div class="btn btn-sm btn-icon mw-20px btn-active-color-success me-5">
+                                                <span class="svg-icon toggle-on svg-icon-success svg-icon-1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                        <path opacity="0.25" d="M6.54184 2.36899C4.34504 2.65912 2.65912 4.34504 2.36899 6.54184C2.16953 8.05208 2 9.94127 2 12C2 14.0587 2.16953 15.9479 2.36899 17.4582C2.65912 19.655 4.34504 21.3409 6.54184 21.631C8.05208 21.8305 9.94127 22 12 22C14.0587 22 15.9479 21.8305 17.4582 21.631C19.655 21.3409 21.3409 19.655 21.631 17.4582C21.8305 15.9479 22 14.0587 22 12C22 9.94127 21.8305 8.05208 21.631 6.54184C21.3409 4.34504 19.655 2.65912 17.4582 2.36899C15.9479 2.16953 14.0587 2 12 2C9.94127 2 8.05208 2.16953 6.54184 2.36899Z" fill="#12131A" />
+                                                        <path d="M8 13C7.44772 13 7 12.5523 7 12C7 11.4477 7.44772 11 8 11H16C16.5523 11 17 11.4477 17 12C17 12.5523 16.5523 13 16 13H8Z" fill="#12131A" />
+                                                    </svg>
+                                                </span>
+                                                <span class="svg-icon toggle-off svg-icon-1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                        <path opacity="0.25" fill-rule="evenodd" clip-rule="evenodd" d="M6.54184 2.36899C4.34504 2.65912 2.65912 4.34504 2.36899 6.54184C2.16953 8.05208 2 9.94127 2 12C2 14.0587 2.16953 15.9479 2.36899 17.4582C2.65912 19.655 4.34504 21.3409 6.54184 21.631C8.05208 21.8305 9.94127 22 12 22C14.0587 22 15.9479 21.8305 17.4582 21.631C19.655 21.3409 21.3409 19.655 21.631 17.4582C21.8305 15.9479 22 14.0587 22 12C22 9.94127 21.8305 8.05208 21.631 6.54184C21.3409 4.34504 19.655 2.65912 17.4582 2.36899C15.9479 2.16953 14.0587 2 12 2C9.94127 2 8.05208 2.16953 6.54184 2.36899Z" fill="#12131A" />
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12 17C12.5523 17 13 16.5523 13 16V13H16C16.5523 13 17 12.5523 17 12C17 11.4477 16.5523 11 16 11H13V8C13 7.44772 12.5523 7 12 7C11.4477 7 11 7.44772 11 8V11H8C7.44772 11 7 11.4477 7 12C7 12.5523 7.44771 13 8 13H11V16C11 16.5523 11.4477 17 12 17Z" fill="#12131A" />
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <h4 class="text-gray-700 fw-bolder cursor-pointer mb-0">
+                                                6. How can I staking my TTS?
+                                            </h4>
+                                        </div>
+                                        <div id="kt_job_4_6" class="collapse fs-6 ms-1">
+                                            <div class="mb-4 text-gray-600 fw-bold fs-6 ps-10">
+                                                After listing, you can sell TTS anytimes or joining staking program at website <a href="https://tt-swap.net">https://tt-swap.net</a> with profit from 5 % to 8% per month, specially profit paided by TTS TOKEN
+                                                <br />
+                                                <br />
+                                                <span class="text-gray-800 fw-bolder cursor-pointer mb-0">
+                                                    Several factors impact on BNB claim amount. Reasons are following:
+                                                </span>
+                                                <br />
+                                                1. The amount of BNB reward pool is distributed based on percentage. The more BNB is in the reward pool, the more you can claim. However, it is ALWAYS based on percentage. The less there, the less you get. IT IS NOT CUMULATIVE.
+                                                <br />
+                                                2. The more people claim, the less BNB will be available in the reward pool for others.
+                                                <br />
+                                                3. There is always existing a cycle before you can collect BNB. The more you make the BNB volume transaction, the more cycle is changed. Be aware of this when you are thinking of selling high to purchase low. (In other words, if the more TTS token is being traded, the more BNB collection will be increased.)
+                                            </div>
+                                        </div>
+                                        <div class="separator separator-dashed"></div>
+                                    </div>
+                                    <div class="m-0">
+                                        <div class="d-flex align-items-center collapsible py-3 toggle collapsed mb-0" data-bs-toggle="collapse" data-bs-target="#kt_job_4_7">
+                                            <div class="btn btn-sm btn-icon mw-20px btn-active-color-success me-5">
+                                                <span class="svg-icon toggle-on svg-icon-success svg-icon-1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                        <path opacity="0.25" d="M6.54184 2.36899C4.34504 2.65912 2.65912 4.34504 2.36899 6.54184C2.16953 8.05208 2 9.94127 2 12C2 14.0587 2.16953 15.9479 2.36899 17.4582C2.65912 19.655 4.34504 21.3409 6.54184 21.631C8.05208 21.8305 9.94127 22 12 22C14.0587 22 15.9479 21.8305 17.4582 21.631C19.655 21.3409 21.3409 19.655 21.631 17.4582C21.8305 15.9479 22 14.0587 22 12C22 9.94127 21.8305 8.05208 21.631 6.54184C21.3409 4.34504 19.655 2.65912 17.4582 2.36899C15.9479 2.16953 14.0587 2 12 2C9.94127 2 8.05208 2.16953 6.54184 2.36899Z" fill="#12131A" />
+                                                        <path d="M8 13C7.44772 13 7 12.5523 7 12C7 11.4477 7.44772 11 8 11H16C16.5523 11 17 11.4477 17 12C17 12.5523 16.5523 13 16 13H8Z" fill="#12131A" />
+                                                    </svg>
+                                                </span>
+                                                <span class="svg-icon toggle-off svg-icon-1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                        <path opacity="0.25" fill-rule="evenodd" clip-rule="evenodd" d="M6.54184 2.36899C4.34504 2.65912 2.65912 4.34504 2.36899 6.54184C2.16953 8.05208 2 9.94127 2 12C2 14.0587 2.16953 15.9479 2.36899 17.4582C2.65912 19.655 4.34504 21.3409 6.54184 21.631C8.05208 21.8305 9.94127 22 12 22C14.0587 22 15.9479 21.8305 17.4582 21.631C19.655 21.3409 21.3409 19.655 21.631 17.4582C21.8305 15.9479 22 14.0587 22 12C22 9.94127 21.8305 8.05208 21.631 6.54184C21.3409 4.34504 19.655 2.65912 17.4582 2.36899C15.9479 2.16953 14.0587 2 12 2C9.94127 2 8.05208 2.16953 6.54184 2.36899Z" fill="#12131A" />
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12 17C12.5523 17 13 16.5523 13 16V13H16C16.5523 13 17 12.5523 17 12C17 11.4477 16.5523 11 16 11H13V8C13 7.44772 12.5523 7 12 7C11.4477 7 11 7.44772 11 8V11H8C7.44772 11 7 11.4477 7 12C7 12.5523 7.44771 13 8 13H11V16C11 16.5523 11.4477 17 12 17Z" fill="#12131A" />
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <h4 class="text-gray-700 fw-bolder cursor-pointer mb-0">
+                                                7. How much fee do I have to pay per transaction?
+                                            </h4>
+                                        </div>
+                                        <div id="kt_job_4_7" class="collapse fs-6 ms-1">
+                                            <div class="mb-4 text-gray-600 fw-bold fs-6 ps-10">
+                                                You will pay about 10% for every purchase or sell or transfer.
+                                                <br />
+                                                How much tax percentage do I have to pay every time if I claim more than 0.001 BNB?
+                                                <br />
+                                                You will pay 15% tax for each claim over 0.01 BNB.
+                                                <br />
+                                                a. 5% is used to buy back TTS at the market price and burn them immediately. This feature helps deflate the supply and increase the price of TTS for long-term TTS holders.
+                                                <br />
+                                                b. 10% is shared back in BNB to TTS holders.
+                                            </div>
+                                        </div>
+                                        <div class="separator separator-dashed"></div>
+                                    </div>
+                                    <div class="m-0">
+                                        <div class="d-flex align-items-center collapsible py-3 toggle collapsed mb-0"
+                                             data-bs-toggle="collapse" data-bs-target="#kt_job_4_8">
+                                            <div class="btn btn-sm btn-icon mw-20px btn-active-color-success me-5">
+                                                <span class="svg-icon toggle-on svg-icon-success svg-icon-1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                        <path opacity="0.25" d="M6.54184 2.36899C4.34504 2.65912 2.65912 4.34504 2.36899 6.54184C2.16953 8.05208 2 9.94127 2 12C2 14.0587 2.16953 15.9479 2.36899 17.4582C2.65912 19.655 4.34504 21.3409 6.54184 21.631C8.05208 21.8305 9.94127 22 12 22C14.0587 22 15.9479 21.8305 17.4582 21.631C19.655 21.3409 21.3409 19.655 21.631 17.4582C21.8305 15.9479 22 14.0587 22 12C22 9.94127 21.8305 8.05208 21.631 6.54184C21.3409 4.34504 19.655 2.65912 17.4582 2.36899C15.9479 2.16953 14.0587 2 12 2C9.94127 2 8.05208 2.16953 6.54184 2.36899Z" fill="#12131A" />
+                                                        <path d="M8 13C7.44772 13 7 12.5523 7 12C7 11.4477 7.44772 11 8 11H16C16.5523 11 17 11.4477 17 12C17 12.5523 16.5523 13 16 13H8Z" fill="#12131A" />
+                                                    </svg>
+                                                </span>
+                                                <span class="svg-icon toggle-off svg-icon-1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                        <path opacity="0.25" fill-rule="evenodd" clip-rule="evenodd" d="M6.54184 2.36899C4.34504 2.65912 2.65912 4.34504 2.36899 6.54184C2.16953 8.05208 2 9.94127 2 12C2 14.0587 2.16953 15.9479 2.36899 17.4582C2.65912 19.655 4.34504 21.3409 6.54184 21.631C8.05208 21.8305 9.94127 22 12 22C14.0587 22 15.9479 21.8305 17.4582 21.631C19.655 21.3409 21.3409 19.655 21.631 17.4582C21.8305 15.9479 22 14.0587 22 12C22 9.94127 21.8305 8.05208 21.631 6.54184C21.3409 4.34504 19.655 2.65912 17.4582 2.36899C15.9479 2.16953 14.0587 2 12 2C9.94127 2 8.05208 2.16953 6.54184 2.36899Z" fill="#12131A" />
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12 17C12.5523 17 13 16.5523 13 16V13H16C16.5523 13 17 12.5523 17 12C17 11.4477 16.5523 11 16 11H13V8C13 7.44772 12.5523 7 12 7C11.4477 7 11 7.44772 11 8V11H8C7.44772 11 7 11.4477 7 12C7 12.5523 7.44771 13 8 13H11V16C11 16.5523 11.4477 17 12 17Z" fill="#12131A" />
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <h4 class="text-gray-700 fw-bolder cursor-pointer mb-0">
+                                                8. How much fee do I have to pay per transaction?
+                                            </h4>
+                                        </div>
+                                        <div id="kt_job_4_8" class="collapse fs-6 ms-1">
+                                            <div class="mb-4 text-gray-600 fw-bold fs-6 ps-10">
+                                                You will pay 10% for every purchase or sell or transfer.
+                                            </div>
+                                        </div>
+                                        <div class="separator separator-dashed"></div>
+                                    </div>
+                                    <div class="m-0">
+                                        <div class="d-flex align-items-center collapsible py-3 toggle collapsed mb-0"
+                                             data-bs-toggle="collapse" data-bs-target="#kt_job_4_9">
+                                            <div class="btn btn-sm btn-icon mw-20px btn-active-color-success me-5">
+                                                <span class="svg-icon toggle-on svg-icon-success svg-icon-1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                        <path opacity="0.25" d="M6.54184 2.36899C4.34504 2.65912 2.65912 4.34504 2.36899 6.54184C2.16953 8.05208 2 9.94127 2 12C2 14.0587 2.16953 15.9479 2.36899 17.4582C2.65912 19.655 4.34504 21.3409 6.54184 21.631C8.05208 21.8305 9.94127 22 12 22C14.0587 22 15.9479 21.8305 17.4582 21.631C19.655 21.3409 21.3409 19.655 21.631 17.4582C21.8305 15.9479 22 14.0587 22 12C22 9.94127 21.8305 8.05208 21.631 6.54184C21.3409 4.34504 19.655 2.65912 17.4582 2.36899C15.9479 2.16953 14.0587 2 12 2C9.94127 2 8.05208 2.16953 6.54184 2.36899Z" fill="#12131A" />
+                                                        <path d="M8 13C7.44772 13 7 12.5523 7 12C7 11.4477 7.44772 11 8 11H16C16.5523 11 17 11.4477 17 12C17 12.5523 16.5523 13 16 13H8Z" fill="#12131A" />
+                                                    </svg>
+                                                </span>
+                                                <span class="svg-icon toggle-off svg-icon-1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                        <path opacity="0.25" fill-rule="evenodd" clip-rule="evenodd" d="M6.54184 2.36899C4.34504 2.65912 2.65912 4.34504 2.36899 6.54184C2.16953 8.05208 2 9.94127 2 12C2 14.0587 2.16953 15.9479 2.36899 17.4582C2.65912 19.655 4.34504 21.3409 6.54184 21.631C8.05208 21.8305 9.94127 22 12 22C14.0587 22 15.9479 21.8305 17.4582 21.631C19.655 21.3409 21.3409 19.655 21.631 17.4582C21.8305 15.9479 22 14.0587 22 12C22 9.94127 21.8305 8.05208 21.631 6.54184C21.3409 4.34504 19.655 2.65912 17.4582 2.36899C15.9479 2.16953 14.0587 2 12 2C9.94127 2 8.05208 2.16953 6.54184 2.36899Z" fill="#12131A" />
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12 17C12.5523 17 13 16.5523 13 16V13H16C16.5523 13 17 12.5523 17 12C17 11.4477 16.5523 11 16 11H13V8C13 7.44772 12.5523 7 12 7C11.4477 7 11 7.44772 11 8V11H8C7.44772 11 7 11.4477 7 12C7 12.5523 7.44771 13 8 13H11V16C11 16.5523 11.4477 17 12 17Z" fill="#12131A" />
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <h4 class="text-gray-700 fw-bolder cursor-pointer mb-0">
+                                                9. Overview of TTS Token
+                                            </h4>
+                                        </div>
+                                        <div id="kt_job_4_9" class="collapse fs-6 ms-1">
+                                            <div class="mb-4 text-gray-600 fw-bold fs-6 ps-10">
+                                                1. Name: TTS Token
+                                                <br />
+                                                2. Code: TTS
+                                                <br />
+                                                3. Platform technology: BEP-20
+                                                <br />
+                                                4. Total supply: 50,000,000 TOKEN
+                                                <br />
+                                                5. TTS TOKEN burning fund: 50%
+                                            </div>
+                                        </div>
+                                        <div class="separator separator-dashed"></div>
+                                    </div>
+                                    <div class="m-0">
+                                        <div class="d-flex align-items-center collapsible py-3 toggle collapsed mb-0"
+                                             data-bs-toggle="collapse" data-bs-target="#kt_job_4_10">
+                                            <div class="btn btn-sm btn-icon mw-20px btn-active-color-success me-5">
+                                                <span class="svg-icon toggle-on svg-icon-success svg-icon-1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                        <path opacity="0.25" d="M6.54184 2.36899C4.34504 2.65912 2.65912 4.34504 2.36899 6.54184C2.16953 8.05208 2 9.94127 2 12C2 14.0587 2.16953 15.9479 2.36899 17.4582C2.65912 19.655 4.34504 21.3409 6.54184 21.631C8.05208 21.8305 9.94127 22 12 22C14.0587 22 15.9479 21.8305 17.4582 21.631C19.655 21.3409 21.3409 19.655 21.631 17.4582C21.8305 15.9479 22 14.0587 22 12C22 9.94127 21.8305 8.05208 21.631 6.54184C21.3409 4.34504 19.655 2.65912 17.4582 2.36899C15.9479 2.16953 14.0587 2 12 2C9.94127 2 8.05208 2.16953 6.54184 2.36899Z" fill="#12131A" />
+                                                        <path d="M8 13C7.44772 13 7 12.5523 7 12C7 11.4477 7.44772 11 8 11H16C16.5523 11 17 11.4477 17 12C17 12.5523 16.5523 13 16 13H8Z" fill="#12131A" />
+                                                    </svg>
+                                                </span>
+                                                <span class="svg-icon toggle-off svg-icon-1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                        <path opacity="0.25" fill-rule="evenodd" clip-rule="evenodd" d="M6.54184 2.36899C4.34504 2.65912 2.65912 4.34504 2.36899 6.54184C2.16953 8.05208 2 9.94127 2 12C2 14.0587 2.16953 15.9479 2.36899 17.4582C2.65912 19.655 4.34504 21.3409 6.54184 21.631C8.05208 21.8305 9.94127 22 12 22C14.0587 22 15.9479 21.8305 17.4582 21.631C19.655 21.3409 21.3409 19.655 21.631 17.4582C21.8305 15.9479 22 14.0587 22 12C22 9.94127 21.8305 8.05208 21.631 6.54184C21.3409 4.34504 19.655 2.65912 17.4582 2.36899C15.9479 2.16953 14.0587 2 12 2C9.94127 2 8.05208 2.16953 6.54184 2.36899Z" fill="#12131A" />
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12 17C12.5523 17 13 16.5523 13 16V13H16C16.5523 13 17 12.5523 17 12C17 11.4477 16.5523 11 16 11H13V8C13 7.44772 12.5523 7 12 7C11.4477 7 11 7.44772 11 8V11H8C7.44772 11 7 11.4477 7 12C7 12.5523 7.44771 13 8 13H11V16C11 16.5523 11.4477 17 12 17Z" fill="#12131A" />
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <h4 class="text-gray-700 fw-bolder cursor-pointer mb-0">
+                                                10. How Does the TTS Token Work?
+                                            </h4>
+                                        </div>
+                                        <div id="kt_job_4_10" class="collapse fs-6 ms-1">
+                                            <div class="mb-4 text-gray-600 fw-bold fs-6 ps-10">
+                                                TT-SWAP DeFi Token greatly enhances the functionality of NFT technology. Thanks to the use of artificial intelligence, TT-SWAP DeFi Coin is able to incentivize building a next-generation marketplace for Non-Fungible Tokens and various other digital coins and tokens.
+                                                <br />
+                                                <br />
+                                                The main technological feature of the NFT TT-SWAP Token ecosystem is relegating the underlying infrastructure of the NFT DeFi platform to advanced algorithms powered by advanced smart contracts. However, what distinguishes the TT-SWAP Token from other projects is the fact that it is fully based on artificial intelligence - the cutting-edge IC AI Bot is responsible for making the ecosystem maximally profitable for all members at all time.
+                                            </div>
+                                        </div>
+                                        <div class="separator separator-dashed"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @*<div class="card mb-4 bg-light text-center">
+                        <div class="card-body py-12">
+                            <a href="#" class="mx-4">
+                                <img src="~/admin-side/demo3/dist/assets/media/svg/brand-logos/facebook-4.svg" class="h-30px my-2" alt="" />
+                            </a>
+                            <a href="#" class="mx-4">
+                                <img src="~/admin-side/demo3/dist/assets/media/svg/brand-logos/instagram-2-1.svg" class="h-30px my-2" alt="" />
+                            </a>
+                            <a href="#" class="mx-4">
+                                <img src="~/admin-side/demo3/dist/assets/media/svg/brand-logos/github.svg" class="h-30px my-2" alt="" />
+                            </a>
+                            <a href="#" class="mx-4">
+                                <img src="~/admin-side/demo3/dist/assets/media/svg/brand-logos/behance.svg" class="h-30px my-2" alt="" />
+                            </a>
+                            <a href="#" class="mx-4">
+                                <img src="~/admin-side/demo3/dist/assets/media/svg/brand-logos/pinterest-p.svg" class="h-30px my-2" alt="" />
+                            </a>
+                            <a href="#" class="mx-4">
+                                <img src="~/admin-side/demo3/dist/assets/media/svg/brand-logos/twitter.svg" class="h-30px my-2" alt="" />
+                            </a>
+                            <a href="#" class="mx-4">
+                                <img src="~/admin-side/demo3/dist/assets/media/svg/brand-logos/dribbble-icon-1.svg" class="h-30px my-2" alt="" />
+                            </a>
+                        </div>
+                    </div>*@
+                    </div>
+                </div>
+            </div>
+            <div id="video" class="tab-pane fade">
+                <div class="card">
+                    <div class="card-body p-10 p-lg-15">
+                        <div class="mb-17 mt-6">
+                            <div class="d-flex flex-stack mb-6">
+                                <h2 class="text-gray-800 fs-2">Video Tutorials</h2>
+                            </div>
+                            <div class="separator separator-dashed mb-9"></div>
+                            <div class="row g-10">
+                                <div class="col-md-4">
+                                    <div class="card-xl-stretch me-md-6">
+                                        <a class="d-block bgi-no-repeat bgi-size-cover bgi-position-center card-rounded position-relative min-h-175px mb-5"
+                                           style="background-image:url('/images/demo1.jpg')" data-fslightbox="lightbox-video-tutorials"
+                                           href="https://www.youtube.com/watch?v=VsAHryAhj-c" target="_blank">
+                                            <img src="~/admin-side/demo3/dist/assets/media/svg/misc/video-play.svg" class="position-absolute top-50 start-50 translate-middle" alt="" />
+                                        </a>
+                                        <div class="m-0">
+                                            <a href="https://www.youtube.com/watch?v=VsAHryAhj-c" target="_blank" class="fs-4 text-dark fw-bolder text-hover-primary text-dark lh-base">OFFICIAL LAUNCHING OVER THE WORLD - global technology system</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card-xl-stretch me-md-6">
+                                        <a class="d-block bgi-no-repeat bgi-size-cover bgi-position-center card-rounded position-relative min-h-175px mb-5"
+                                           style="background-image:url('/images/nft.jpg')" data-fslightbox="lightbox-video-tutorials"
+                                           href="https://www.youtube.com/watch?v=mgDKPgMc8M8" target="_blank">
+                                            <img src="~/admin-side/demo3/dist/assets/media/svg/misc/video-play.svg" class="position-absolute top-50 start-50 translate-middle" alt="" />
+                                        </a>
+                                        <div class="m-0">
+                                            <a href="https://www.youtube.com/watch?v=mgDKPgMc8M8" target="_blank" class="fs-4 text-dark fw-bolder text-hover-primary text-dark lh-base">VIDEO TRAILER - enables developer solutions</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="ticket" class="tab-pane fade">
+                <div class="card card-flush">
+                    <div class="card-body pt-0">
+                        <div class="table-responsive">
+                            <table class="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
+                                <thead>
+                                    <tr class="fw-bolder text-muted">
+                                        <th class="min-w-150px">Title</th>
+                                        <th class="min-w-150px">Content</th>
+                                        <th class="min-w-100px">Anwser</th>
+                                        <th class="min-w-100px">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tbl-content"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                @await Component.InvokeAsync("Paging")
+            </div>
+            <div id="createticket" class="tab-pane fade">
+                <div class="card pt-10 pb-10 mb-5 mb-xl-10">
+                    <div class="card-body py-3">
+                        <form class="form">
+                            <input type="hidden" id="hidId" value="0" />
+
+                            <div class="d-flex flex-column mb-8 fv-row">
+                                <label class="d-flex align-items-center fs-6 fw-bold mb-2">
+                                    <span class="required">Title</span>
+                                </label>
+                                <input type="text" class="form-control form-control-solid" id="txtName" placeholder="Enter Target Title" />
+                            </div>
+
+                            <div class="d-flex flex-column mb-8">
+                                <label class="fs-6 fw-bold mb-2">Content</label>
+                                <textarea class="form-control form-control-solid" id="txtRequestContent" rows="8"></textarea>
+                            </div>
+
+                            <div class="text-center">
+                                <button type="button" id="btnSave" class="btn btn-primary">
+                                    <span class="indicator-label">Submit</span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script id="table-template" type="x-tmpl-mustache">
+    <tr>
+        <td>
+            <a href="#" class="text-dark text-hover-primary d-block fs-7">{{Name}}</a>
+        </td>
+        <td>
+            <span class="text-muted fw-bold text-muted d-block fs-7">{{RequestContent}}</span>
+        </td>
+        <td>
+            <a href="#" class="text-dark fw-bolder text-hover-primary d-block fs-6">{{ResponseContent}}</a>
+        </td>
+        <td>
+            <span class="text-muted fw-bold text-muted d-block fs-7">{{{Type}}}</span>
+        </td>
+    </tr>
+</script>

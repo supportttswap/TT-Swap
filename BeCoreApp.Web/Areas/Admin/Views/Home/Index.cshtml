@@ -1,0 +1,273 @@
+﻿@model HomeViewModel
+@{
+    ViewBag.Title = "Dashboard";
+    var seedRound = Model.ChartRounds.FirstOrDefault(x => x.Type == BeCoreApp.Data.Enums.ChartRoundType.SeedRound);
+    var privateSale = Model.ChartRounds.FirstOrDefault(x => x.Type == BeCoreApp.Data.Enums.ChartRoundType.PrivateSale);
+    var preSale = Model.ChartRounds.FirstOrDefault(x => x.Type == BeCoreApp.Data.Enums.ChartRoundType.PreSale);
+}
+
+@section Styles{
+    <style>
+        div#box-content p img {
+            width: 100% !important;
+            height: auto !important;
+        }
+    </style>
+    <link href="~/ecosystem/css/styles.css" rel="stylesheet" />
+}
+
+@section Scripts{
+    @*<script src="~/admin-side/demo3/dist/assets/js/custom/authentication/sign-up/coming-soon.js"></script>*@
+    <script src="~/ecosystem/js/jquery.1.9.1.js"></script>
+    <script src="~/ecosystem/js/prefixfree.min.js"></script>
+    <script src="~/ecosystem/js/scripts.min.js"></script>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <script src="~/admin-app/controllers/home/index.js"></script>
+    <script>
+        var homeObj = new HomeController();
+        homeObj.initialize();
+    </script>
+}
+
+<input hidden id="SeedRoundDistributedToken" value="@seedRound.DistributedToken" />
+<input hidden id="SeedRoundTotal" value="@seedRound.Total" />
+
+<input hidden id="PrivateSaleDistributedToken" value="@privateSale.DistributedToken" />
+<input hidden id="PrivateSaleTotal" value="@privateSale.Total" />
+
+<input hidden id="PreSaleDistributedToken" value="@preSale.DistributedToken" />
+<input hidden id="PreSaleTotal" value="@preSale.Total" />
+
+<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+    <div class="container" id="kt_content_container">
+        <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget" id="ticker-tape">
+            </div>
+        </div>
+        @*<div class="row gy-5 g-xl-10 mt-1">
+            <div class="col-xl-4">
+                <div id="donutchart1" style="width: 100%; height: 100%"></div>
+            </div>
+            <div class="col-xl-4">
+                <div id="donutchart2" style="width: 100%; height: 100%;"></div>
+            </div>
+            <div class="col-xl-4">
+                <div id="donutchart3" style="width: 100%; height: 100%;"></div>
+            </div>
+        </div>*@
+
+        <div class="card mb-5 mt-5 mb-xl-20">
+            <div class="card-body p-lg-14">
+                @if (Model.Notify != null)
+                {
+                    <div class="text-center mt-3 mb-10">
+                        <h3 class="fs-1 text-warning">@Model.Notify.Name</h3>
+                    </div>
+
+                    <div class="mt-7" id="box-content">
+                        @Html.Raw(Model.Notify.MildContent)
+                    </div>
+                }
+                else
+                {
+                    <div class="text-center mt-5 mb-10">
+                        <h3 class="fs-1 text-dark">Updating</h3>
+                    </div>
+                }
+                @*<div class="d-flex flex-column flex-column-fluid">
+                        <div class="d-flex flex-column flex-center p-10 p-lg-10">
+                            <div class="d-flex text-center">
+                                <div class="w-65px rounded-3 shadow-sm py-4 px-5 mx-3" style="background:#c80e00 !important">
+                                    <div class="fs-1 fw-bolder text-gray-800" id="kt_coming_soon_counter_days">14</div>
+                                    <div class="fs-7 fw-bold text-black">days</div>
+                                </div>
+                                <div class="w-65px rounded-3 bg-success shadow-sm py-4 px-5 mx-3" style="background:#c80e00 !important">
+                                    <div class="fs-1 fw-bolder text-gray-800" id="kt_coming_soon_counter_hours">12</div>
+                                    <div class="fs-7 text-black">hrs</div>
+                                </div>
+                                <div class="w-65px rounded-3 bg-success shadow-sm py-4 px-5 mx-3">
+                                    <div class="fs-1 fw-bolder text-gray-800" id="kt_coming_soon_counter_minutes">46</div>
+                                    <div class="fs-7 text-black">min</div>
+                                </div>
+                                <div class="w-65px rounded-3 bg-success shadow-sm py-4 px-5 mx-3">
+                                    <div class="fs-1 fw-bolder text-gray-800" id="kt_coming_soon_counter_seconds">40</div>
+                                    <div class="fs-7 text-black">sec</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>*@
+            </div>
+        </div>
+
+        @*<h1 class="d-flex flex-column text-dark fw-bolder mt-20 fs-2">Ecosystem</h1>*@
+        <div id="divBody" class="opening hide-UI view-2D zoom-large data-close controls-close">
+            @*<div id="navbar">
+                    <a id="toggle-data" href="#data"><i class="icon-data"></i>Data</a>
+                    <a id="toggle-controls" href="#controls"><i class="icon-controls"></i>Controls</a>
+                </div>*@
+            <div id="data">
+                @*<a class="sun" title="TTS" href="#TTSspeed">TT-SWAP</a>*@
+                <a class="mercury" title="AI" href="#ai">AI</a>
+                <a class="venus" title="NFT" href="#nft">NFT</a>
+                <a class="earth active" title="Game" href="#game">Game</a>
+                <a class="mars" title="Swap" href="#swap">Swap</a>
+                <a class="jupiter" title="Staking" href="#staking">Staking</a>
+                <a class="saturn" title="Farming" href="#farming">Farming</a>
+                <a class="uranus" title="DeFi" href="#defi">DeFi</a>
+                <a class="neptune" title="Exchange" href="#exchange">Exchange</a>
+            </div>
+            @*<div id="controls">
+                    <label class="set-view">
+                        <input type="checkbox">
+                    </label>
+                    <label class="set-zoom">
+                        <input type="checkbox">
+                    </label>
+                    <label>
+                        <input type="radio" class="set-speed" name="scale" checked>
+                        <span>Speed</span>
+                    </label>
+                    <label>
+                        <input type="radio" class="set-size" name="scale">
+                        <span>Size</span>
+                    </label>
+                    <label>
+                        <input type="radio" class="set-distance" name="scale">
+                        <span>Distance</span>
+                    </label>
+                </div>*@
+            <div id="universe" class="scale-stretched">
+                <div id="galaxy">
+                    <div id="solar-system" class="earth">
+                        <div id="mercury" class="orbit">
+                            <div class="pos">
+                                <div class="planet">
+                                    <dl class="infos">
+                                        <dt>AI</dt>
+                                        <dd><span>Ecosystem</span></dd>
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="venus" class="orbit">
+                            <div class="pos">
+                                <div class="planet">
+                                    <dl class="infos">
+                                        <dt>NFT</dt>
+                                        <dd><span>Ecosystem</span></dd>
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="earth" class="orbit">
+                            <div class="pos">
+                                <div class="orbit">
+                                    <div class="pos">
+                                        <div class="moon"></div>
+                                    </div>
+                                </div>
+                                <div class="planet">
+                                    <dl class="infos">
+                                        <dt>Game</dt>
+                                        <dd>
+                                            <span>Ecosystem</span>
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="mars" class="orbit">
+                            <div class="pos">
+                                <div class="planet">
+                                    <dl class="infos">
+                                        <dt>Swap</dt>
+                                        <dd><span>Ecosystem</span></dd>
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="jupiter" class="orbit">
+                            <div class="pos">
+                                <div class="planet">
+                                    <dl class="infos">
+                                        <dt>Staking</dt>
+                                        <dd><span>Ecosystem</span></dd>
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="saturn" class="orbit">
+                            <div class="pos">
+                                <div class="planet">
+                                    <div class="ring"></div>
+                                    <dl class="infos">
+                                        <dt>Farming</dt>
+                                        <dd><span>Ecosystem</span></dd>
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="uranus" class="orbit">
+                            <div class="pos">
+                                <div class="planet">
+                                    <dl class="infos">
+                                        <dt>DeFi</dt>
+                                        <dd><span>Ecosystem</span></dd>
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="neptune" class="orbit">
+                            <div class="pos">
+                                <div class="planet">
+                                    <dl class="infos">
+                                        <dt>Exchange</dt>
+                                        <dd><span>Ecosystem</span></dd>
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="sun">
+                            @*<dl class="infos">
+                                    <dt></dt>
+                                    <dd><span></span></dd>
+                                </dl>*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*<div class="app-content icon-content">
+        <div class="section">
+            <div class="page-header">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#"><i class="ti-package mr-1"></i> Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">@ViewData["Title"]</li>
+                </ol>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            @if (Model.Notify != null)
+                            {
+                                <h2 class="mb-5 mt-5 font-weight-bold text-center text-green">@Model.Notify.Name</h2>
+                                <div class="mt-7">
+                                    @Html.Raw(Model.Notify.MildContent)
+                                </div>
+                            }
+                            else
+                            {
+                                <h2 class="mb-5 mt-5 font-weight-bold text-center text-green" style="text-shadow: -3px 1px 2px #fe2c55;">Updating</h2>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>*@

@@ -1,0 +1,52 @@
+﻿@using Microsoft.AspNetCore.Authorization
+@using BeCoreApp.Authorization
+@inject IAuthorizationService AuthorizationService
+@{
+    ViewBag.Title = "Tree View";
+}
+
+@section Scripts{
+    @*<script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+        <script src="https://rawgit.com/adamjimenez/jstree-table/master/jstreetable.js"></script>
+        <script src="~/lib/jQuery-EasyUI/jquery.easyui.min.js"></script>*@
+
+    <script src="~/admin-side/demo3/dist/assets/plugins/custom/jstree/jstree.bundle.js"></script>
+    <script src="~/admin-app/controllers/user/indextree.js" asp-append-version="true"></script>
+    <script>
+        var customerTreeObj = new CustomerTreeController();
+        customerTreeObj.initialize();
+    </script>
+}
+
+@section Styles{
+    <link href="~/admin-side/demo3/dist/assets/plugins/custom/jstree/jstree.bundle.css" rel="stylesheet" />
+    @*<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css" />*@
+    @*<link href="~/lib/jQuery-EasyUI/themes/bootstrap/easyui.css" rel="stylesheet" />*@
+    @*<link href="~/lib/jQuery-EasyUI/themes/icon.css" rel="stylesheet" />*@
+}
+
+<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+    <div class="container" id="kt_content_container">
+        <div class="card mb-2 mb-xl-10">
+            <div class="card-header border-0 pt-5">
+                <ul class="breadcrumb breadcrumb-dot fw-bold fs-base my-1">
+                    <li class="breadcrumb-item text-muted">Email</li>
+                    <li class="breadcrumb-item text-muted">Sponsor ID</li>
+                    <li class="breadcrumb-item text-muted">Lock</li>
+                    <li class="breadcrumb-item text-muted">Invest</li>
+                    <li class="breadcrumb-item text-muted">TT-SWAP Affiliate</li>
+                    <li class="breadcrumb-item text-muted">TT-SWAP Commission</li>
+                    <li class="breadcrumb-item text-muted">BNB BEP20</li>
+                    <li class="breadcrumb-item text-muted">BNB Affiliate</li>
+                </ul>
+            </div>
+            <div class="card-body py-10">
+                <div class="table-responsive">
+                    <div id="jstree"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

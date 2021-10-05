@@ -1,0 +1,43 @@
+﻿@model WalletViewModel
+@using BeCoreApp.Utilities.Constants
+@{
+    ViewBag.Title = "Lucky Round";
+}
+
+@section Styles{
+    <link href="~/Winwheel/examples/wheel_of_fortune/main.css" rel="stylesheet" />
+}
+
+@section Scripts{
+
+    <script type="text/javascript" src="~/Winwheel/Winwheel.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+    <script src="~/admin-app/controllers/game/lucky-round.js"></script>
+    <script>
+        var luckyRound = new LuckyRoundController();
+        luckyRound.initialize();
+    </script>
+}
+
+<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+    <div class="container" id="kt_content_container">
+        <div class="card  py-20">
+            <div align="center">
+                <table cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                        <td class="the_wheel" align="center" valign="center">
+                            <canvas id="canvas" width="360" height="360">
+                                Sorry, your browser doesn't support canvas. Please try another.
+                            </canvas>
+                        </td>
+                    </tr>
+                </table>
+                <div class="mt-10">
+                    <img id="spin_button" src="~/Winwheel/examples/wheel_of_fortune/spin_on.png" alt="Spin" />
+                    <a href="#" id="reset_button" class="btn btn-sm btn-secondary">Play Again</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,256 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <UserSecretsId>aspnet-BeCoreApp.Web-A8CA69FF-42F0-4734-8E5E-1AE5F2224FF3</UserSecretsId>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <WarningLevel>1</WarningLevel>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="wwwroot\admin-side\css-spinner-master\**" />
+    <Compile Remove="wwwroot\admin-side\metronic\**" />
+    <Compile Remove="wwwroot\icons\**" />
+    <Content Remove="wwwroot\admin-side\css-spinner-master\**" />
+    <Content Remove="wwwroot\admin-side\metronic\**" />
+    <Content Remove="wwwroot\icons\**" />
+    <EmbeddedResource Remove="wwwroot\admin-side\css-spinner-master\**" />
+    <EmbeddedResource Remove="wwwroot\admin-side\metronic\**" />
+    <EmbeddedResource Remove="wwwroot\icons\**" />
+    <None Remove="wwwroot\admin-side\css-spinner-master\**" />
+    <None Remove="wwwroot\admin-side\metronic\**" />
+    <None Remove="wwwroot\icons\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="6.1.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="3.1.0" />
+    <PackageReference Include="EPPlus.Core" Version="1.5.4" />
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.9" PrivateAssets="All" />
+    <PackageReference Include="Nethereum.HdWallet" Version="3.4.0" />
+    <PackageReference Include="Nethereum.Web3" Version="3.4.0" />
+    <PackageReference Include="PaulMiami.AspNetCore.Mvc.Recaptcha" Version="1.2.1" />
+    <PackageReference Include="Serilog.Extensions.Logging.File" Version="1.1.0" />
+    <PackageReference Include="SkiaSharp" Version="1.68.0" />
+    <PackageReference Include="Telegram.Bot" Version="16.0.2" />
+    <PackageReference Include="WebMarkupMin.AspNetCore2" Version="2.5.0" />
+    <PackageReference Include="WebMarkupMin.NUglify" Version="2.5.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BeCoreApp.Application\BeCoreApp.Application.csproj" />
+    <ProjectReference Include="..\BeCoreApp.Data.EF\BeCoreApp.Data.EF.csproj" />
+    <ProjectReference Include="..\BeCoreApp.Data\BeCoreApp.Data.csproj" />
+    <ProjectReference Include="..\BeCoreApp.Infrastructure\BeCoreApp.Infrastructure.csproj" />
+    <ProjectReference Include="..\BeCoreApp.Utilities\BeCoreApp.Utilities.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\Admin\Views\Home\Partials\" />
+    <Folder Include="Helpers\" />
+    <Folder Include="Logs\" />
+    <Folder Include="wwwroot\client-side\TTS\img\favicon\" />
+    <Folder Include="wwwroot\client-side\TTS\img\logo-partner\" />
+    <Folder Include="wwwroot\client-side\TTS\js\" />
+    <Folder Include="wwwroot\uploaded\excels\" />
+    <Folder Include="wwwroot\uploaded\images\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Areas\Admin\Views\Feedback\Index.cshtml" />
+    <None Include="Areas\Admin\Views\Feedback\_AddEditModal.cshtml" />
+    <None Include="wwwroot\client-side\ttswap\fonts\fontawesome-webfont.woff2" />
+    <None Include="wwwroot\client-side\ttswap\fonts\icofont.woff2" />
+    <None Include="wwwroot\client-side\ttswap\js\jquery-2.2.4.min.js" />
+    <None Include="wwwroot\client-side\ttswap\js\jquery.min.js" />
+    <None Include="wwwroot\client-side\ttswap\js\scripts.min.js" />
+    <None Include="wwwroot\client-side\ttswap\js\webfont.js" />
+    <None Include="wwwroot\admin-app\controllers\feedback\index.js" />
+    <None Include="wwwroot\lib\notify\jquery.growl.js" />
+    <None Include="wwwroot\lib\notify\jquery.js" />
+    <None Include="wwwroot\lib\notify\notifIt.js" />
+    <None Include="wwwroot\lib\notify\rainbow.js" />
+    <None Include="wwwroot\lib\notify\sample.js" />
+    <None Include="wwwroot\Winwheel\examples\.gitignore" />
+    <None Include="wwwroot\Winwheel\LICENSE" />
+    <None Include="wwwroot\Winwheel\README.md" />
+    <None Include="wwwroot\Winwheel\Winwheel.js" />
+    <None Include="wwwroot\Winwheel\Winwheel.min.js" />
+    <None Include="wwwroot\lib\ckeditor\plugins\youtube\lang\ar.js" />
+    <None Include="wwwroot\lib\ckeditor\plugins\youtube\lang\bg.js" />
+    <None Include="wwwroot\lib\ckeditor\plugins\youtube\lang\cs.js" />
+    <None Include="wwwroot\lib\ckeditor\plugins\youtube\lang\de.js" />
+    <None Include="wwwroot\lib\ckeditor\plugins\youtube\lang\el.js" />
+    <None Include="wwwroot\lib\ckeditor\plugins\youtube\lang\en.js" />
+    <None Include="wwwroot\lib\ckeditor\plugins\youtube\lang\es.js" />
+    <None Include="wwwroot\lib\ckeditor\plugins\youtube\lang\et.js" />
+    <None Include="wwwroot\lib\ckeditor\plugins\youtube\lang\eu.js" />
+    <None Include="wwwroot\lib\ckeditor\plugins\youtube\lang\fi.js" />
+    <None Include="wwwroot\lib\ckeditor\plugins\youtube\lang\fr.js" />
+    <None Include="wwwroot\lib\ckeditor\plugins\youtube\lang\he.js" />
+    <None Include="wwwroot\lib\ckeditor\plugins\youtube\lang\hu.js" />
+    <None Include="wwwroot\lib\ckeditor\plugins\youtube\lang\it.js" />
+    <None Include="wwwroot\lib\ckeditor\plugins\youtube\lang\ja.js" />
+    <None Include="wwwroot\lib\ckeditor\plugins\youtube\lang\ko.js" />
+    <None Include="wwwroot\lib\ckeditor\plugins\youtube\lang\nb.js" />
+    <None Include="wwwroot\lib\ckeditor\plugins\youtube\lang\nl.js" />
+    <None Include="wwwroot\lib\ckeditor\plugins\youtube\lang\nn.js" />
+    <None Include="wwwroot\lib\ckeditor\plugins\youtube\lang\pl.js" />
+    <None Include="wwwroot\lib\ckeditor\plugins\youtube\lang\pt-br.js" />
+    <None Include="wwwroot\lib\ckeditor\plugins\youtube\lang\pt.js" />
+    <None Include="wwwroot\lib\ckeditor\plugins\youtube\lang\ru.js" />
+    <None Include="wwwroot\lib\ckeditor\plugins\youtube\lang\sk.js" />
+    <None Include="wwwroot\lib\ckeditor\plugins\youtube\lang\tr.js" />
+    <None Include="wwwroot\lib\ckeditor\plugins\youtube\lang\uk.js" />
+    <None Include="wwwroot\lib\ckeditor\plugins\youtube\lang\vi.js" />
+    <None Include="wwwroot\lib\ckeditor\plugins\youtube\lang\zh.js" />
+    <None Include="wwwroot\lib\ckeditor\plugins\youtube\plugin.js" />
+    <None Include="wwwroot\lib\jquery-qrcode-master\.gitignore" />
+    <None Include="wwwroot\lib\jquery-qrcode-master\jquery.qrcode.min.js" />
+    <None Include="wwwroot\lib\jquery-qrcode-master\Makefile" />
+    <None Include="wwwroot\lib\jquery-qrcode-master\README.md" />
+    <None Include="wwwroot\lib\jquery-qrcode-master\src\jquery.qrcode.js" />
+    <None Include="wwwroot\lib\jquery-qrcode-master\src\qrcode.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Areas\Admin\Views\Account\AccessDenied.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Areas\Admin\Views\Account\ExternalLogin.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Areas\Admin\Views\Account\ResendEmailConfirm.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Areas\Admin\Views\Account\ForgotPassword.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Areas\Admin\Views\Account\Lockout.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Areas\Admin\Views\Account\Login.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Areas\Admin\Views\Account\LoginWith2fa.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Areas\Admin\Views\Account\LoginWithRecoveryCode.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Areas\Admin\Views\Account\Register.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Areas\Admin\Views\Account\ResetPassword.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Areas\Admin\Views\Account\ResetPasswordConfirmation.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Areas\Admin\Views\Account\SignedOut.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Areas\Admin\Views\Report\Index.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Areas\Admin\Views\Notify\Index.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Areas\Admin\Views\Notify\_AddEditModal.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Areas\Admin\Views\Shared\_LayoutAccount.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Areas\Admin\Views\Shared\_LayoutMain.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Areas\Admin\Views\Shared\_LayoutMainOld.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Areas\Admin\Views\SupportManage\Index.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Areas\Admin\Views\SupportManage\_EditModal.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Areas\Admin\Views\Support\Index.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Areas\Admin\Views\Support\_ViewModal.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Areas\Admin\Views\Support\_AddModal.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Areas\Admin\Views\Network\Index.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Areas\Admin\Views\Shared\_LayoutAccountOld.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Areas\Admin\Views\User\_AddEditModalCustomer.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Areas\Admin\Views\Wallet\Index.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Areas\Admin\Views\BlogCategory\Index.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Areas\Admin\Views\BlogCategory\_AddEditModal.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Areas\Admin\Views\MenuItem\Index.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Areas\Admin\Views\MenuItem\_AddEditModal.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Areas\Admin\Views\Blog\Index.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Areas\Admin\Views\Blog\_AddEditModal.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Areas\Admin\Views\Function\_AddEditModal.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Areas\Admin\Views\MenuGroup\Index.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Areas\Admin\Views\MenuGroup\_AddEditModal.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Areas\Admin\Views\Shared\Components\PagingUser\Default.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Areas\Admin\Views\Shared\Components\Paging\Default.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\EmailTemplate\_ForgotPassword.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\EmailTemplate\_VerifyAccount.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\Shared\_Header.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\Shared\_Footer.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="wwwroot\client-app\controllers\feedback\index.js">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\whitepaper\WhitePaperTTSwap.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>

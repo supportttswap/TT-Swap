@@ -1,0 +1,38 @@
+﻿@model BeCoreApp.Application.ViewModels.Blog.BlogViewModel
+@{
+    ViewBag.Title = "News Detail";
+}
+
+@section Styles{
+    <style>
+        #box-mild-content p img {
+            max-width: 100%;
+            height: auto !important;
+        }
+    </style>
+}
+@section Scripts{
+    
+}
+
+<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+    <div class="container" id="kt_content_container">
+        <div class="card">
+            <div class="card-body p-lg-17">
+                <div class="mb-18">
+                    <div class="mb-10">
+                        <div class="text-center mb-15">
+                            <h3 class="fs-1 text-dark mb-5">@Model.Name</h3>
+                            <div class="fs-5 text-muted fw-bold">
+                                @Model.Description
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fs-6 fw-bold text-gray-600" id="box-mild-content">
+                        @Html.Raw(Model.MildContent)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

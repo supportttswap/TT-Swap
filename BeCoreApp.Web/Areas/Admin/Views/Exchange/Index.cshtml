@@ -1,0 +1,105 @@
+﻿@model WalletViewModel
+@using BeCoreApp.Utilities.Constants
+@{
+    ViewBag.Title = "Exchange";
+
+}
+@section Scripts{
+    <script src="~/admin-app/controllers/exchange/index.js" asp-append-version="true"></script>
+    <script>
+        var exchangeController = new ExchangeController();
+        exchangeController.initialize();
+    </script>
+}
+
+@section Styles{
+    <link href="~/admin-app/controllers/exchange/index.css" rel="stylesheet" asp-append-version="true" />
+}
+
+<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+    <div class="container" id="kt_content_container">
+        <div class="card">
+            <div class="card-header card-header-stretch overflow-auto">
+                <ul class="nav nav-stretch nav-line-tabs fw-bold border-transparent flex-nowrap fs-6" role="tablist" id="kt_layout_builder_tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-bs-toggle="tab" href="#kt_builder_main" role="tab" aria-selected="false">Buy</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#kt_builder_header" role="tab" aria-selected="true">Sell</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-body w-lg-500px offset-xl-2 offset-lg-2">
+                <div class="tab-content">
+                    <div class="tab-pane fade active show" id="kt_builder_main">
+                        <form class="form w-100">
+                            @Html.AntiForgeryToken()
+                            <div class="text-center mb-6">
+                                <h4 class="text-primary mb-3">Minimum buy 0.1 BNB and maximum buy 6 BNB</h4>
+                                <div class="text-gray-400 fs-5">
+                                    Buy TTS for price <span class="link-danger">$0.1</span> in Private Sale
+                                </div>
+                            </div>
+                            <div class="fv-row mb-4">
+                                <label class="form-label fs-6 fw-bolder text-dark">Wallet Type</label>
+                                <select id="walletType" class="form-select form-select-lg form-select-solid">
+                                    <option value="1" selected>Wallet BNB BEP20</option>
+                                    <option value="2">Wallet BNB Affiliate</option>
+                                </select>
+                            </div>
+                            <div class="fv-row mb-4">
+                                <div class="d-flex flex-stack mb-2">
+                                    <label class="form-label fs-6 fw-bolder text-dark">Balance BNB</label>
+                                    <a class="link-warning fs-6 fw-bolder">BNB</a>
+                                </div>
+                                <input class="form-control form-control-lg form-control-solid" type="text" id="BalanceBNB" readonly autocomplete="off" />
+                            </div>
+                            <div class="fv-row mb-4">
+                                <div class="d-flex flex-stack mb-2">
+                                    <label class="form-label fs-6 fw-bolder text-dark">Amount BNB Order</label>
+                                    <a class="link-warning fs-6 fw-bolder">BNB</a>
+                                </div>
+                                <div class="position-relative">
+                                    <span class="svg-icon svg-icon-2 svg-icon-lg-1 position-absolute top-50 translate-middle-y svg-icon-primary fw-bolder fs-6"
+                                          id="btnMax" style="background: #151521;padding: 15px;border-radius: 0 .65rem .65rem 0;cursor: pointer;right:0">
+                                        MAX
+                                    </span>
+
+                                    <input class="form-control form-control-lg form-control-solid" value="0" type="text" id="OrderBNB" autocomplete="off" />
+                                </div>
+
+                            </div>
+                            <div class="fv-row mb-4">
+                                <div class="d-flex flex-stack mb-2">
+                                    <label class="form-label fs-6 fw-bolder text-dark">Amount TTS Receive</label>
+                                    <a class="link-success fs-6 fw-bolder">TTS</a>
+                                </div>
+                                <input class="form-control form-control-lg form-control-solid numberFormat" type="text" id="AmountTTS" autocomplete="off" />
+                            </div>
+                            <div class="card-footer py-6">
+                                <div class="text-center">
+                                    @*<button type="button" disabled class="btn btn-lg btn-success mb-5">
+                                            <span class="indicator-label">Buy</span>
+                                        </button>*@
+
+                                    <button type="button" id="btnBuyTTS" class="btn btn-lg btn-success mb-5">
+                                        <span class="indicator-label">Buy</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="tab-pane fade" id="kt_builder_header">
+                        <form class="form w-100">
+                            <div class="text-center mb-10">
+                                <h1 class="text-dark mb-3">Coming Soon</h1>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,324 @@
+﻿@{
+    ViewBag.Title = "Report";
+
+    var isAdmin = User.IsInRole("Admin");
+}
+@section Scripts{
+    <script src="~/admin-app/controllers/report/index.js" asp-append-version="true"></script>
+    <script>
+        var reportObj = new ReportController();
+        reportObj.initialize();
+    </script>
+}
+
+@section Styles{
+    <link href="~/admin-app/controllers/report/index.css" rel="stylesheet" asp-append-version="true" />
+}
+
+<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+    <div class="container" id="kt_content_container">
+        <div class="d-flex flex-wrap flex-stack pb-5">
+            <div class="d-flex flex-wrap align-items-center my-1">
+                <div class="d-flex align-items-center my-1">
+                    <input type="text" id="FromDate" class="form-control form-control-white form-control-sm me-5" placeholder="From">
+                </div>
+                <div class="d-flex align-items-center my-1">
+                    <input type="text" id="ToDate" class="form-control form-control-white form-control-sm me-5" placeholder="To">
+                </div>
+                <a id="btnSearch" class="btn btn-sm btn-icon btn-light btn-color-muted btn-active-success me-3">
+                    <span class="svg-icon svg-icon-2 svg-icon-success">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M21.7 18.9L18.6 15.8C17.9 16.9 16.9 17.9 15.8 18.6L18.9 21.7C19.3 22.1 19.9 22.1 20.3 21.7L21.7 20.3C22.1 19.9 22.1 19.3 21.7 18.9Z" fill="black"></path><path opacity="0.3" d="M11 20C6 20 2 16 2 11C2 6 6 2 11 2C16 2 20 6 20 11C20 16 16 20 11 20ZM11 4C7.1 4 4 7.1 4 11C4 14.9 7.1 18 11 18C14.9 18 18 14.9 18 11C18 7.1 14.9 4 11 4ZM8 11C8 9.3 9.3 8 11 8C11.6 8 12 7.6 12 7C12 6.4 11.6 6 11 6C8.2 6 6 8.2 6 11C6 11.6 6.4 12 7 12C7.6 12 8 11.6 8 11Z" fill="black"></path></svg>
+                    </span>
+                </a>
+            </div>
+        </div>
+        <div class="card mb-8">
+
+            @*@if (isAdmin)
+            {
+                @Html.AntiForgeryToken()
+                <div class="card-header border-0 pt-5">
+                    <div class="d-flex flex-wrap flex-stack pb-5">
+                        <div class="d-flex flex-wrap align-items-center my-1">
+                            <div class="d-flex align-items-center my-1">
+                                <input type="file" id="input-file" />
+                            </div>
+                            <button id="upload-file" class="btn btn-primary  text-center">Upload</button>
+                        </div>
+                    </div>
+                </div>
+            }*@
+
+            <div class="card-header border-0 pt-5">
+                <h3 class="card-title align-items-start flex-column">
+                    <span class="card-label fw-bolder fs-5 mb-1">Members Statistics</span>
+                </h3>
+            </div>
+            <div class="card-body pt-1 pb-0">
+                <div class="d-flex flex-wrap flex-sm-nowrap">
+                    <div class="flex-grow-1">
+                        <div class="d-flex flex-wrap justify-content-start">
+                            <div class="d-flex flex-wrap">
+                                <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-3 mb-3">
+                                    <div class="d-flex align-items-center">
+                                        <span class="svg-icon svg-icon-3 svg-icon-primary me-2">
+                                            <i class="fa fa-users text-primary"></i>
+                                        </span>
+                                        <div class="fs-6 fw-bolder TotalMember">0</div>
+                                    </div>
+                                    <div class="fw-bold fs-6 text-gray-400">Total Member</div>
+                                </div>
+                                <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-3 mb-3">
+                                    <div class="d-flex align-items-center">
+                                        <span class="svg-icon svg-icon-3 svg-icon-primary me-2">
+                                            <i class="fa fa-users text-warning"></i>
+                                        </span>
+                                        <div class="fs-6 fw-bolder TodayMember">0</div>
+                                    </div>
+                                    <div class="fw-bold fs-6 text-gray-400">Today Member</div>
+                                </div>
+                                <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-3 mb-3">
+                                    <div class="d-flex align-items-center">
+                                        <span class="svg-icon svg-icon-3 svg-icon-success me-2">
+                                            <i class="fa fa-users text-success"></i>
+                                        </span>
+                                        <div class="fs-6 fw-bolder TotalMemberVerifyEmail">0</div>
+                                    </div>
+                                    <div class="fw-bold fs-6 text-gray-400">Member Active</div>
+                                </div>
+                                <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-3 mb-3">
+                                    <div class="d-flex align-items-center">
+                                        <span class="svg-icon svg-icon-3 svg-icon-danger me-2">
+                                            <i class="fa fa-users text-danger"></i>
+                                        </span>
+                                        <div class="fs-6 fw-bolder TotalMemberInVerifyEmail">0</div>
+                                    </div>
+                                    <div class="fw-bold fs-6 text-gray-400">Member InActive</div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-header border-0 pt-5">
+                <h3 class="card-title align-items-start flex-column">
+                    <span class="card-label fw-bolder fs-5 mb-1">Wallet BNB BEP20 Statistics</span>
+                </h3>
+            </div>
+            <div class="card-body pt-1 pb-0">
+                <div class="d-flex flex-wrap flex-sm-nowrap">
+                    <div class="flex-grow-1">
+                        <div class="d-flex flex-wrap justify-content-start">
+                            <div class="d-flex flex-wrap">
+                                <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-3 mb-3">
+                                    <div class="d-flex align-items-center">
+                                        <span class="svg-icon svg-icon-3 svg-icon-primary me-2">
+                                            <i class="fa fa-wallet text-success"></i>
+                                        </span>
+                                        <div class="fs-6 fw-bolder TotalBNBBEP20Deposit">0</div>
+                                    </div>
+                                    <div class="fw-bold fs-6 text-gray-400">Total Deposit</div>
+                                </div>
+                                <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-3 mb-3">
+                                    <div class="d-flex align-items-center">
+                                        <span class="svg-icon svg-icon-3 svg-icon-success me-2">
+                                            <i class="fa fa-wallet text-danger"></i>
+                                        </span>
+                                        <div class="fs-6 fw-bolder TotalBNBBEP20Withdraw">0</div>
+                                    </div>
+                                    <div class="fw-bold fs-6 text-gray-400">Total Withdraw</div>
+                                </div>
+                                <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-3 mb-3">
+                                    <div class="d-flex align-items-center">
+                                        <span class="svg-icon svg-icon-3 svg-icon-danger me-2">
+                                            <i class="fa fa-wallet text-success"></i>
+                                        </span>
+                                        <div class="fs-6 fw-bolder TodayBNBBEP20Deposit">0</div>
+                                    </div>
+                                    <div class="fw-bold fs-6 text-gray-400">Today Deposit</div>
+                                </div>
+
+                                <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-3 mb-3">
+                                    <div class="d-flex align-items-center">
+                                        <span class="svg-icon svg-icon-3 svg-icon-danger me-2">
+                                            <i class="fa fa-wallet text-danger"></i>
+                                        </span>
+                                        <div class="fs-6 fw-bolder TodayBNBBEP20Withdraw">0</div>
+                                    </div>
+                                    <div class="fw-bold fs-6 text-gray-400">Today Withdraw</div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-header border-0 pt-5">
+                <h3 class="card-title align-items-start flex-column">
+                    <span class="card-label fw-bolder fs-5 mb-1">Wallet BNB Affiliate Statistics</span>
+                </h3>
+            </div>
+            <div class="card-body pt-1 pb-0">
+                <div class="d-flex flex-wrap flex-sm-nowrap">
+                    <div class="flex-grow-1">
+                        <div class="d-flex flex-wrap justify-content-start">
+                            <div class="d-flex flex-wrap">
+                                <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-3 mb-3">
+                                    <div class="d-flex align-items-center">
+                                        <span class="svg-icon svg-icon-3 svg-icon-primary me-2">
+                                            <i class="fa fa-wallet text-success"></i>
+                                        </span>
+                                        <div class="fs-6 fw-bolder TotalBNBAffiliateDeposit">0</div>
+                                    </div>
+                                    <div class="fw-bold fs-6 text-gray-400">Total Deposit</div>
+                                </div>
+                                <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-3 mb-3">
+                                    <div class="d-flex align-items-center">
+                                        <span class="svg-icon svg-icon-3 svg-icon-success me-2">
+                                            <i class="fa fa-wallet text-danger"></i>
+                                        </span>
+                                        <div class="fs-6 fw-bolder TotalBNBAffiliateWithdraw">0</div>
+                                    </div>
+                                    <div class="fw-bold fs-6 text-gray-400">Total Withdraw</div>
+                                </div>
+                                <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-3 mb-3">
+                                    <div class="d-flex align-items-center">
+                                        <span class="svg-icon svg-icon-3 svg-icon-danger me-2">
+                                            <i class="fa fa-wallet text-success"></i>
+                                        </span>
+                                        <div class="fs-6 fw-bolder TodayBNBAffiliateDeposit">0</div>
+                                    </div>
+                                    <div class="fw-bold fs-6 text-gray-400">Today Deposit</div>
+                                </div>
+
+                                <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-3 mb-3">
+                                    <div class="d-flex align-items-center">
+                                        <span class="svg-icon svg-icon-3 svg-icon-danger me-2">
+                                            <i class="fa fa-wallet text-danger"></i>
+                                        </span>
+                                        <div class="fs-6 fw-bolder TodayBNBAffiliateWithdraw">0</div>
+                                    </div>
+                                    <div class="fw-bold fs-6 text-gray-400">Today Withdraw</div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="card-header border-0 pt-5">
+                <h3 class="card-title align-items-start flex-column">
+                    <span class="card-label fw-bolder fs-5 mb-1">Wallet Invest Statistics</span>
+                </h3>
+            </div>
+            <div class="card-body pt-1 pb-0">
+                <div class="d-flex flex-wrap flex-sm-nowrap">
+                    <div class="flex-grow-1">
+                        <div class="d-flex flex-wrap justify-content-start">
+                            <div class="d-flex flex-wrap">
+                                <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-3 mb-3">
+                                    <div class="d-flex align-items-center">
+                                        <span class="svg-icon svg-icon-3 svg-icon-primary me-2">
+                                            <i class="fa fa-wallet text-success"></i>
+                                        </span>
+                                        <div class="fs-6 fw-bolder TotalInvestDeposit">0</div>
+                                    </div>
+                                    <div class="fw-bold fs-6 text-gray-400">Total Deposit</div>
+                                </div>
+                                <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-3 mb-3">
+                                    <div class="d-flex align-items-center">
+                                        <span class="svg-icon svg-icon-3 svg-icon-success me-2">
+                                            <i class="fa fa-wallet text-danger"></i>
+                                        </span>
+                                        <div class="fs-6 fw-bolder TotalInvestWithdraw">0</div>
+                                    </div>
+                                    <div class="fw-bold fs-6 text-gray-400">Total Withdraw</div>
+                                </div>
+                                <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-3 mb-3">
+                                    <div class="d-flex align-items-center">
+                                        <span class="svg-icon svg-icon-3 svg-icon-danger me-2">
+                                            <i class="fa fa-wallet text-success"></i>
+                                        </span>
+                                        <div class="fs-6 fw-bolder TodayInvestDeposit">0</div>
+                                    </div>
+                                    <div class="fw-bold fs-6 text-gray-400">Today Deposit</div>
+                                </div>
+
+                                <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-3 mb-3">
+                                    <div class="d-flex align-items-center">
+                                        <span class="svg-icon svg-icon-3 svg-icon-danger me-2">
+                                            <i class="fa fa-wallet text-danger"></i>
+                                        </span>
+                                        <div class="fs-6 fw-bolder TodayInvestWithdraw">0</div>
+                                    </div>
+                                    <div class="fw-bold fs-6 text-gray-400">Today Withdraw</div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-header border-0 pt-5">
+                <h3 class="card-title align-items-start flex-column">
+                    <span class="card-label fw-bolder fs-5 mb-1">Wallet Lock Statistics</span>
+                </h3>
+            </div>
+            <div class="card-body pt-1 pb-0">
+                <div class="d-flex flex-wrap flex-sm-nowrap pb-6">
+                    <div class="flex-grow-1">
+                        <div class="d-flex flex-wrap justify-content-start">
+                            <div class="d-flex flex-wrap">
+                                <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-3 mb-3">
+                                    <div class="d-flex align-items-center">
+                                        <span class="svg-icon svg-icon-3 svg-icon-primary me-2">
+                                            <i class="fa fa-wallet text-success"></i>
+                                        </span>
+                                        <div class="fs-6 fw-bolder TotalLockDeposit">0</div>
+                                    </div>
+                                    <div class="fw-bold fs-6 text-gray-400">Total Deposit</div>
+                                </div>
+                                <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-3 mb-3">
+                                    <div class="d-flex align-items-center">
+                                        <span class="svg-icon svg-icon-3 svg-icon-success me-2">
+                                            <i class="fa fa-wallet text-danger"></i>
+                                        </span>
+                                        <div class="fs-6 fw-bolder TotalLockWithdraw">0</div>
+                                    </div>
+                                    <div class="fw-bold fs-6 text-gray-400">Total Withdraw</div>
+                                </div>
+                                <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-3 mb-3">
+                                    <div class="d-flex align-items-center">
+                                        <span class="svg-icon svg-icon-3 svg-icon-danger me-2">
+                                            <i class="fa fa-wallet text-success"></i>
+                                        </span>
+                                        <div class="fs-6 fw-bolder TodayLockDeposit">0</div>
+                                    </div>
+                                    <div class="fw-bold fs-6 text-gray-400">Today Deposit</div>
+                                </div>
+
+                                <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-3 mb-3">
+                                    <div class="d-flex align-items-center">
+                                        <span class="svg-icon svg-icon-3 svg-icon-danger me-2">
+                                            <i class="fa fa-wallet text-danger"></i>
+                                        </span>
+                                        <div class="fs-6 fw-bolder TodayLockWithdraw">0</div>
+                                    </div>
+                                    <div class="fw-bold fs-6 text-gray-400">Today Withdraw</div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

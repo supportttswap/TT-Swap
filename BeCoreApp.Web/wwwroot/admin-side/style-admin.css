@@ -1,0 +1,23 @@
+﻿span.textbox.combo {
+    width: 100% !important;
+}
+.combo-panel.panel-body.panel-body-noheader {
+    height: 170px !important;
+    background: #4c4c59;
+    padding: 10px;
+    border-radius: 5px 5px 0px 0px;
+}
+#_easyui_textbox_input1 {
+    width: 100% !important;
+    height: 42px !important;
+    background-color: #1b1b29;
+    color: #92929f;
+    transition: color .2s ease,background-color .2s ease;
+    box-shadow: none !important;
+    display: block;
+    padding: .75rem 1rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    border: 2px solid #1b1b29;
+    border-radius: .65rem;
+}

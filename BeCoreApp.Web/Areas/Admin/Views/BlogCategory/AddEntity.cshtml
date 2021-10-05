@@ -1,0 +1,107 @@
+﻿@{
+    ViewBag.Title = "Add Blog Category";
+}
+
+@section Scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="https://rawgit.com/adamjimenez/jstree-table/master/jstreetable.js"></script>
+    <script src="~/lib/jQuery-EasyUI/jquery.easyui.min.js"></script>
+    <script src="~/admin-app/controllers/blog-category/add.js" asp-append-version="true"></script>
+    <script>
+        var blogCategoryAdd = new BlogCategoryAddController();
+        blogCategoryAdd.initialize();
+    </script>
+}
+
+@section Styles{
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css" />
+    @*<link href="~/lib/jQuery-EasyUI/themes/bootstrap/easyui.css" rel="stylesheet" />*@
+    <link href="~/lib/jQuery-EasyUI/themes/icon.css" rel="stylesheet" />
+    <link href="~/admin-app/controllers/blog-category/index.css" rel="stylesheet" asp-append-version="true" />
+}
+
+<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+    <div class="container" id="kt_content_container">
+        <div class="card mb-5 mb-xl-10">
+            <div class="card-body py-3">
+                <form class="form">
+                    <input type="hidden" id="hideId" value="0"/>
+                    <input type="hidden" id="txtSortOrder" value="1"/>
+                    
+                    <div class="d-flex flex-column mb-8 fv-row">
+                        <label class="d-flex align-items-center fs-6 fw-bold mb-2">
+                            <span class="required">Title</span>
+                        </label>
+                        <input type="text" class="form-control form-control-solid" id="txtName" placeholder="Enter Target Title" />
+                    </div>
+                    <div class="d-flex flex-column mb-8">
+                        <label class="required fs-6 fw-bold mb-2">Type</label>
+                        @Html.DropDownList("Type", null, new { @class = "form-select form-select-solid" })
+                    </div>
+                    <div class="d-flex flex-column mb-8">
+                        <label class="fs-6 fw-bold mb-2">Description</label>
+                        <textarea class="form-control form-control-solid" id="txtDescription" rows="3"></textarea>
+                    </div>
+
+                    <div class="d-flex flex-column mb-8 fv-row">
+                        <label class="d-flex align-items-center fs-6 fw-bold mb-2">Function</label>
+                        <input type="text" class="form-control form-control-solid" id="ddlFunctionId" />
+                    </div>
+
+                    <div class="d-flex flex-column mb-8 fv-row">
+                        <label class="d-flex align-items-center fs-6 fw-bold mb-2">Parent Name</label>
+                        <input type="text" readonly class="form-control form-control-solid" id="txtParentName"/>
+                    </div>
+                    <div class="d-flex flex-column mb-8 fv-row">
+                        <label class="d-flex align-items-center fs-6 fw-bold mb-2">Parent ID</label>
+                        <input type="text" readonly class="form-control form-control-solid" id="txtParentId" value="#"/>
+                    </div>
+
+                    <div class="d-flex flex-column mb-8 fv-row">
+                        <label class="d-flex align-items-center fs-6 fw-bold mb-2">Icon Css</label>
+                        <input type="text" class="form-control form-control-solid" id="txtIconCss" />
+                    </div>
+                    <div class="d-flex flex-column mb-8 fv-row">
+                        <label class="d-flex align-items-center fs-6 fw-bold mb-2">Url</label>
+                        <input type="text" readonly class="form-control form-control-solid" id="txtUrl" />
+                    </div>
+
+                    <div class="d-flex flex-column mb-8 fv-row">
+                        <label class="d-flex align-items-center fs-6 fw-bold mb-2">Seo Page Title</label>
+                        <input type="text" class="form-control form-control-solid" id="txtSeoPageTitle" />
+                    </div>
+                    <div class="d-flex flex-column mb-8 fv-row">
+                        <label class="d-flex align-items-center fs-6 fw-bold mb-2">Seo Keywords</label>
+                        <input type="text" class="form-control form-control-solid" id="txtSeoKeywords" />
+                    </div>
+                    <div class="d-flex flex-column mb-8 fv-row">
+                        <label class="d-flex align-items-center fs-6 fw-bold mb-2">Seo Description</label>
+                        <input type="text" class="form-control form-control-solid" id="txtSeoDescription" />
+                    </div>
+
+                    <div class="mb-15 fv-row">
+                        <div class="d-flex flex-stack">
+                            <div class="d-flex">
+                                <label class="form-check form-check-custom form-check-solid me-10">
+                                    <input class="form-check-input h-20px w-20px" type="checkbox" checked="checked" id="ckStatus" />
+                                    <span class="form-check-label fw-bold">Status</span>
+                                </label>
+                                <label class="form-check form-check-custom form-check-solid me-10">
+                                    <input class="form-check-input h-20px w-20px" type="checkbox" id="ckIsMain" />
+                                    <span class="form-check-label fw-bold">Main</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <a href="/admin/blogcategory/index" class="btn btn-light me-3">Cancel</a>
+                        <button type="button" id="btnSave" class="btn btn-primary">
+                            <span class="indicator-label">Submit</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

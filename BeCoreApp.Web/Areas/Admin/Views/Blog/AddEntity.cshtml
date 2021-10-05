@@ -1,0 +1,104 @@
+﻿@{
+    ViewBag.Title = "Add Blog";
+}
+@section Styles{
+    @*<link href="~/lib/jQuery-EasyUI/themes/bootstrap/easyui.css" rel="stylesheet" />*@
+    <link href="~/lib/jQuery-EasyUI/themes/icon.css" rel="stylesheet" />
+    <link href="~/admin-app/controllers/blog/index.css" rel="stylesheet" asp-append-version="true" />
+}
+@section Scripts{
+    <script src="~/lib/jQuery-EasyUI/jquery.easyui.min.js"></script>
+    <script src="~/admin-app/controllers/blog/add.js"></script>
+    <script>
+        var blogAdd = new BlogAddController();
+        blogAdd.initialize();
+    </script>
+}
+
+<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+    <div class="container" id="kt_content_container">
+        <div class="card mb-5 mb-xl-10">
+            <div class="card-body py-3">
+                <form class="form">
+                    <input type="hidden" id="hidId" value="0" />
+
+                    <div class="d-flex flex-column mb-8 fv-row">
+                        <label class="d-flex align-items-center fs-6 fw-bold mb-2">
+                            <span class="required">Title</span>
+                        </label>
+                        <input type="text" class="form-control form-control-solid" id="txtName" placeholder="Enter Target Title" />
+                    </div>
+
+                    <div class="d-flex flex-column mb-8 fv-row">
+                        <label class="d-flex align-items-center fs-6 fw-bold mb-2">Category</label>
+                        <input type="text" class="form-control form-control-solid" id="ddlBlogCategoryId" />
+                    </div>
+
+                    <div class="d-flex flex-column mb-8">
+                        <label class="required fs-6 fw-bold mb-2">Tags</label>
+                        @Html.DropDownList("Tags", null, new { id = "ddlTags", multiple = true, @class = "form-select form-select-solid" })
+                    </div>
+
+                    <div class="d-flex flex-column mb-8">
+                        <label for="txtImage" class="d-flex align-items-center fs-6 fw-bold mb-2">Image</label>
+                        <div class="input-group">
+                            <input type="text" id="txtImage" class="form-control form-control-solid" />
+                            <input type="file" id="fileInputImage" style="display:none" />
+                            <span class="input-group-btn">
+                                <input type="button" id="btnSelectImg" class="btn btn-success" value="Browser" />
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-column mb-8">
+                        <label class="fs-6 fw-bold mb-2">Description</label>
+                        <textarea class="form-control form-control-solid" id="txtDescription" rows="3"></textarea>
+                    </div>
+
+                    <div class="d-flex flex-column mb-8">
+                        <label class="fs-6 fw-bold mb-2">Content</label>
+                        <textarea class="form-control form-control-solid" id="txtContent" rows="3"></textarea>
+                    </div>
+
+                    <div class="d-flex flex-column mb-8 fv-row">
+                        <label class="d-flex align-items-center fs-6 fw-bold mb-2">Seo Page Title</label>
+                        <input type="text" class="form-control form-control-solid" id="txtSeoPageTitle" />
+                    </div>
+                    <div class="d-flex flex-column mb-8 fv-row">
+                        <label class="d-flex align-items-center fs-6 fw-bold mb-2">Seo Keywords</label>
+                        <input type="text" class="form-control form-control-solid" id="txtSeoKeywords" />
+                    </div>
+                    <div class="d-flex flex-column mb-8 fv-row">
+                        <label class="d-flex align-items-center fs-6 fw-bold mb-2">Seo Description</label>
+                        <input type="text" class="form-control form-control-solid" id="txtSeoDescription" />
+                    </div>
+
+                    <div class="mb-15 fv-row">
+                        <div class="d-flex flex-stack">
+                            <div class="d-flex">
+                                <label class="form-check form-check-custom form-check-solid me-10">
+                                    <input class="form-check-input h-20px w-20px" type="checkbox" checked="checked" id="ckStatus" />
+                                    <span class="form-check-label fw-bold">Status</span>
+                                </label>
+                                <label class="form-check form-check-custom form-check-solid me-10">
+                                    <input class="form-check-input h-20px w-20px" type="checkbox" id="ckHot" />
+                                    <span class="form-check-label fw-bold">Hot</span>
+                                </label>
+                                <label class="form-check form-check-custom form-check-solid me-10">
+                                    <input class="form-check-input h-20px w-20px" type="checkbox" id="ckShowHome" />
+                                    <span class="form-check-label fw-bold">Show Home</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <a href="/admin/blog/index" class="btn btn-light me-3">Cancel</a>
+                        <button type="button" id="btnSave" class="btn btn-primary">
+                            <span class="indicator-label">Submit</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

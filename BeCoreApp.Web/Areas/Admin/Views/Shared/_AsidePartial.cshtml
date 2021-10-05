@@ -1,0 +1,408 @@
+@using Microsoft.AspNetCore.Http.Extensions;
+@using Microsoft.AspNetCore.Identity
+@using BeCoreApp.Extensions
+
+@{
+    var url = Context.Request.GetEncodedUrl();
+    string iconSvg = "<span class=\"svg-icon svg-icon-5\">" +
+                                "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox =\"0 0 24 24\" fill =\"none\">" +
+                                    "<path d=\"M14.4 11H3C2.4 11 2 11.4 2 12C2 12.6 2.4 13 3 13H14.4V11Z\" fill =\"black\" />" +
+                                    "<path opacity=\"0.3\" d =\"M14.4 20V4L21.7 11.3C22.1 11.7 22.1 12.3 21.7 12.7L14.4 20Z\" fill =\"black\" />" +
+                                "</svg></span>";
+}
+
+<div id="kt_aside" class="aside py-9" data-kt-drawer="true" data-kt-drawer-name="aside" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'200px', '300px': '250px'}" data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_aside_toggle">
+    <div class="aside-logo flex-column-auto px-9 mb-9" id="kt_aside_logo">
+        <a href="/admin/home/index">
+            <img alt="Logo" src="~/images/Logo TT-Swap 512X.png" class="h-50px logo" />
+        </a>
+    </div>
+    <div class="aside-menu flex-column-fluid ps-5 pe-3 mb-9" id="kt_aside_menu">
+        <div class="w-100 hover-scroll-overlay-y d-flex flex-center- pe-2" id="kt_aside_menu_wrapper" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-height="auto" data-kt-scroll-dependencies="#kt_aside_logo, #kt_aside_footer" data-kt-scroll-wrappers="#kt_aside, #kt_aside_menu, #kt_aside_menu_wrapper" data-kt-scroll-offset="100">
+            <div class="menu menu-column menu-rounded fw-bold my-auto" id="#kt_aside_menu" data-kt-menu="true">
+                @*<div class="menu-item pb-5">
+                    <button id="addAssetButton" class="btn btn-sm btn-light-dark btn-active-light fs-7">
+                        <img src="~/images/metamask.svg" width="30" /> Add TT-SWAP to MetaMask
+                    </button>
+                </div>*@
+
+                @if (User.GetSpecificClaim("RoleName") == "Customer")
+                {
+                    <div class="menu-item">
+                        <a class="menu-link @Html.Raw(url.Contains("/admin/home/index")?"active":"")" href="/admin/home/index">
+                            <span class="menu-icon">
+                                @Html.Raw(iconSvg)
+                            </span>
+                            <span class="menu-title">Dashboard</span>
+                        </a>
+                    </div>
+
+                    @*<div class="menu-item">
+                        <a class="menu-link @Html.Raw(url.Contains("/admin/wallet/index")?"active":"")" href="/admin/wallet/index">
+                            <span class="menu-icon">
+                                @Html.Raw(iconSvg)
+                            </span>
+                            <span class="menu-title">Wallet</span>
+                        </a>
+                    </div>
+
+                    <div class="menu-item">
+                        <a class="menu-link @Html.Raw(url.Contains("/admin/exchange/index")?"active":"")" href="/admin/exchange/index">
+                            <span class="menu-icon">
+                                @Html.Raw(iconSvg)
+                            </span>
+                            <span class="menu-title">Exchange</span>
+                        </a>
+                    </div>
+
+                    <div class="menu-item">
+                        <a class="menu-link @Html.Raw(url.Contains("/admin/swap/index")?"active":"")" href="/admin/swap/index">
+                            <span class="menu-icon">
+                                @Html.Raw(iconSvg)
+                            </span>
+                            <span class="menu-title">Swap</span>
+                        </a>
+                    </div>
+
+                    <div class="menu-item">
+                        <a class="menu-link @Html.Raw(url.Contains("/admin/staking/index")?"active":"")" href="/admin/staking/index">
+                            <span class="menu-icon">
+                                @Html.Raw(iconSvg)
+                            </span>
+                            <span class="menu-title">Staking</span>
+                        </a>
+                    </div>
+
+                    <div class="menu-item">
+                        <a class="menu-link @Html.Raw(url.Contains("/admin/farming/index")?"active":"")" href="/admin/farming/index">
+                            <span class="menu-icon">
+                                @Html.Raw(iconSvg)
+                            </span>
+                            <span class="menu-title">Farming</span>
+                        </a>
+                    </div>
+
+                    <div class="menu-item">
+                        <a class="menu-link @Html.Raw(url.Contains("/admin/nft/index")?"active":"")" href="/admin/nft/index">
+                            <span class="menu-icon">
+                                @Html.Raw(iconSvg)
+                            </span>
+                            <span class="menu-title">NFT</span>
+                        </a>
+                    </div>
+
+                    <div class="menu-item">
+                        <a class="menu-link @Html.Raw((url.Contains("/admin/game/index") || url.Contains("/admin/game/luckyround")) ? "active":"")" href="/admin/game/index">
+                            <span class="menu-icon">
+                                @Html.Raw(iconSvg)
+                            </span>
+                            <span class="menu-title">Game</span>
+                        </a>
+                    </div>
+
+                    <div data-kt-menu-trigger="click"
+                         class="menu-item
+                         @Html.Raw((url.Contains("/admin/transaction/index") || url.Contains("/admin/transaction/walletbnbbep20")
+                        || url.Contains("/admin/transaction/walletbnbaffiliate") || url.Contains("/admin/transaction/walletinvest")
+                        || url.Contains("/admin/transaction/walletlock")) ? "here show":"") menu-accordion">
+                        <span class="menu-link">
+                            <span class="menu-icon">
+                                <span class="svg-icon svg-icon-5">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path d="M14.4 11H3C2.4 11 2 11.4 2 12C2 12.6 2.4 13 3 13H14.4V11Z" fill="black" />
+                                        <path opacity="0.3" d="M14.4 20V4L21.7 11.3C22.1 11.7 22.1 12.3 21.7 12.7L14.4 20Z" fill="black" />
+                                    </svg>
+                                </span>
+                            </span>
+                            <span class="menu-title">Transaction</span>
+                            <span class="menu-arrow"></span>
+                        </span>
+                        <div class="menu-sub menu-sub-accordion">
+                            <div class="menu-item">
+                                <a class="menu-link @Html.Raw(url.Contains("/admin/transaction/walletlock")?"active":"")" href="/admin/transaction/walletlock">
+                                    <span class="menu-bullet">
+                                        <span class="bullet bullet-dot"></span>
+                                    </span>
+                                    <span class="menu-title">Wallet Lock</span>
+                                </a>
+                            </div>
+                            <div class="menu-item">
+                                <a class="menu-link @Html.Raw(url.Contains("/admin/transaction/walletinvest")?"active":"")" href="/admin/transaction/walletinvest">
+                                    <span class="menu-bullet">
+                                        <span class="bullet bullet-dot"></span>
+                                    </span>
+                                    <span class="menu-title">Wallet Invest</span>
+                                </a>
+                            </div>
+                            <div class="menu-item">
+                                <a class="menu-link @Html.Raw(url.Contains("/admin/transaction/walletbnbbep20")?"active":"")" href="/admin/transaction/walletbnbbep20">
+                                    <span class="menu-bullet">
+                                        <span class="bullet bullet-dot"></span>
+                                    </span>
+                                    <span class="menu-title">Wallet BNB BEP20</span>
+                                </a>
+                            </div>
+                            <div class="menu-item">
+                                <a class="menu-link @Html.Raw(url.Contains("/admin/transaction/walletbnbaffiliate")?"active":"")" href="/admin/transaction/walletbnbaffiliate">
+                                    <span class="menu-bullet">
+                                        <span class="bullet bullet-dot"></span>
+                                    </span>
+                                    <span class="menu-title">Wallet BNB Affiliate</span>
+                                </a>
+                            </div>
+                            <div class="menu-item">
+                                <a class="menu-link @Html.Raw(url.Contains("/admin/transaction/index")?"active":"")" href="/admin/transaction/index">
+                                    <span class="menu-bullet">
+                                        <span class="bullet bullet-dot"></span>
+                                    </span>
+                                    <span class="menu-title">Transaction</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>*@
+
+                    <div class="menu-item">
+                        <a class="menu-link @Html.Raw(url.Contains("/admin/network/index") ? "active" : "")" href="/admin/network/index">
+                            <span class="menu-icon">
+                                @Html.Raw(iconSvg)
+                            </span>
+                            <span class="menu-title">Network</span>
+                        </a>
+                    </div>
+
+                  @*  <div class="menu-item">
+                        <a class="menu-link @Html.Raw(url.Contains("/admin/profile/index") ? "active" : "")" href="/admin/profile/index">
+                            <span class="menu-icon">
+                                @Html.Raw(iconSvg)
+                            </span>
+                            <span class="menu-title">Profile</span>
+                        </a>
+                    </div>
+
+                    <div class="menu-item">
+                        <a class="menu-link @Html.Raw(url.Contains("/admin/support/index") ? "active" : "")" href="/admin/support/index">
+                            <span class="menu-icon">
+                                @Html.Raw(iconSvg)
+                            </span>
+                            <span class="menu-title">Support Center</span>
+                        </a>
+                    </div>*@
+                }
+
+                @if (User.GetSpecificClaim("RoleName") == "Admin")
+                {
+                    <div class="menu-item">
+                        <a class="menu-link @Html.Raw(url.Contains("/admin/report/index")?"active":"")" href="/admin/report/index">
+                            <span class="menu-icon">
+                                @Html.Raw(iconSvg)
+                            </span>
+                            <span class="menu-title">Report</span>
+                        </a>
+                    </div>
+
+                    <div class="menu-item">
+                        <a class="menu-link @Html.Raw(url.Contains("/admin/supportmanage/index") ? "active" : "")" href="/admin/supportmanage/index">
+                            <span class="menu-icon">
+                                @Html.Raw(iconSvg)
+                            </span>
+                            <span class="menu-title">Support Center</span>
+                        </a>
+                    </div>
+
+                    <div class="menu-item">
+                        <a class="menu-link @Html.Raw(url.Contains("/admin/tickettransaction/index") ? "active" : "")" href="/admin/tickettransaction/index">
+                            <span class="menu-icon">
+                                @Html.Raw(iconSvg)
+                            </span>
+                            <span class="menu-title">Ticket Transaction</span>
+                        </a>
+                    </div>
+
+                    <div data-kt-menu-trigger="click"
+                         class="menu-item
+                         @Html.Raw(
+                        (url.Contains("/admin/transaction/index")
+                        || url.Contains("/admin/transaction/walletbnbbep20")
+                        || url.Contains("/admin/transaction/walletbnbaffiliate")
+                        || url.Contains("/admin/transaction/walletinvest")
+                        || url.Contains("/admin/transaction/walletlock"))
+                        ? "here show":"") menu-accordion">
+                        <span class="menu-link">
+                            <span class="menu-icon">
+                                <span class="svg-icon svg-icon-5">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path d="M14.4 11H3C2.4 11 2 11.4 2 12C2 12.6 2.4 13 3 13H14.4V11Z" fill="black" />
+                                        <path opacity="0.3" d="M14.4 20V4L21.7 11.3C22.1 11.7 22.1 12.3 21.7 12.7L14.4 20Z" fill="black" />
+                                    </svg>
+                                </span>
+                            </span>
+                            <span class="menu-title">Transaction</span>
+                            <span class="menu-arrow"></span>
+                        </span>
+                        <div class="menu-sub menu-sub-accordion">
+                            <div class="menu-item">
+                                <a class="menu-link @Html.Raw(url.Contains("/admin/transaction/walletlock")?"active":"")" href="/admin/transaction/walletlock">
+                                    <span class="menu-bullet">
+                                        <span class="bullet bullet-dot"></span>
+                                    </span>
+                                    <span class="menu-title">Wallet Lock</span>
+                                </a>
+                            </div>
+                            <div class="menu-item">
+                                <a class="menu-link @Html.Raw(url.Contains("/admin/transaction/walletinvest")?"active":"")" href="/admin/transaction/walletinvest">
+                                    <span class="menu-bullet">
+                                        <span class="bullet bullet-dot"></span>
+                                    </span>
+                                    <span class="menu-title">Wallet Invest</span>
+                                </a>
+                            </div>
+                            <div class="menu-item">
+                                <a class="menu-link @Html.Raw(url.Contains("/admin/transaction/walletbnbbep20")?"active":"")" href="/admin/transaction/walletbnbbep20">
+                                    <span class="menu-bullet">
+                                        <span class="bullet bullet-dot"></span>
+                                    </span>
+                                    <span class="menu-title">Wallet BNB BEP20</span>
+                                </a>
+                            </div>
+                            <div class="menu-item">
+                                <a class="menu-link @Html.Raw(url.Contains("/admin/transaction/walletbnbaffiliate")?"active":"")" href="/admin/transaction/walletbnbaffiliate">
+                                    <span class="menu-bullet">
+                                        <span class="bullet bullet-dot"></span>
+                                    </span>
+                                    <span class="menu-title">Wallet BNB Affiliate</span>
+                                </a>
+                            </div>
+                            <div class="menu-item">
+                                <a class="menu-link @Html.Raw(url.Contains("/admin/transaction/index")?"active":"")" href="/admin/transaction/index">
+                                    <span class="menu-bullet">
+                                        <span class="bullet bullet-dot"></span>
+                                    </span>
+                                    <span class="menu-title">Transaction</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <a class="menu-link @Html.Raw(url.Contains("/admin/user/customers")?"active":"")" href="/admin/user/customers">
+                            <span class="menu-icon">
+                                @Html.Raw(iconSvg)
+                            </span>
+                            <span class="menu-title">Member</span>
+                        </a>
+                    </div>
+                    <div class="menu-item">
+                        <a class="menu-link @Html.Raw(url.Contains("/admin/user/statementalluser")?"active":"")" href="/admin/user/statementalluser">
+                            <span class="menu-icon">
+                                @Html.Raw(iconSvg)
+                            </span>
+                            <span class="menu-title">Statement All User</span>
+                        </a>
+                    </div>
+                    <div class="menu-item">
+                        <a class="menu-link @Html.Raw(url.Contains("/admin/user/indextree")?"active":"")" href="/admin/user/indextree">
+                            <span class="menu-icon">
+                                @Html.Raw(iconSvg)
+                            </span>
+                            <span class="menu-title">Tree View</span>
+                        </a>
+                    </div>
+                    <div class="menu-item">
+                        <a class="menu-link @Html.Raw(url.Contains("/admin/wallettransfer/index")?"active":"")" href="/admin/wallettransfer/index">
+                            <span class="menu-icon">
+                                @Html.Raw(iconSvg)
+                            </span>
+                            <span class="menu-title">Auto Transfer</span>
+                        </a>
+                    </div>
+                    <div class="menu-item">
+                        <a class="menu-link @Html.Raw(url.Contains("/admin/notify/index")?"active":"")" href="/admin/notify/index">
+                            <span class="menu-icon">
+                                @Html.Raw(iconSvg)
+                            </span>
+                            <span class="menu-title">Notify</span>
+                        </a>
+                    </div>
+                    <div class="menu-item">
+                        <a class="menu-link @Html.Raw(url.Contains("/admin/blogcategory/index")?"active":"")" href="/admin/blogcategory/index">
+                            <span class="menu-icon">
+                                @Html.Raw(iconSvg)
+                            </span>
+                            <span class="menu-title">Blog Category</span>
+                        </a>
+                    </div>
+                    <div class="menu-item">
+                        <a class="menu-link @Html.Raw(url.Contains("/admin/blog/index")?"active":"")" href="/admin/blog/index">
+                            <span class="menu-icon">
+                                @Html.Raw(iconSvg)
+                            </span>
+                            <span class="menu-title">Blog</span>
+                        </a>
+                    </div>
+                }
+
+                <div class="menu-item">
+                    <a class="menu-link" href="/logout">
+                        <span class="menu-icon">
+                            @Html.Raw(iconSvg)
+                        </span>
+                        <span class="menu-title">Sign Out</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="aside-footer flex-column-auto px-9" id="kt_aside_footer">
+        <div class="d-flex flex-stack">
+            <div class="d-flex align-items-center">
+                @*<div class="symbol symbol-circle symbol-40px">
+                        <img src="~/admin-side/demo3/dist/assets/media/avatars/150-26.jpg" alt="photo" />
+                    </div>*@
+                <div class="ms-2">
+                    <a href="#" class="text-gray-800 text-hover-primary fw-bolder lh-1" style="font-size:13px;">@User.GetSpecificClaim("Email")</a>
+                    <span class="text-muted fw-bold d-block fs-7 lh-1">@User.GetSpecificClaim("Sponsor")</span>
+                </div>
+            </div>
+            <div class="ms-1">
+                <div class="btn btn-sm btn-icon btn-active-color-primary position-relative me-n2" data-kt-menu-trigger="hover" data-kt-menu-placement="top-end" data-kt-menu-flip="bottom">
+                    <span class="svg-icon svg-icon-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path opacity="0.3" d="M22.1 11.5V12.6C22.1 13.2 21.7 13.6 21.2 13.7L19.9 13.9C19.7 14.7 19.4 15.5 18.9 16.2L19.7 17.2999C20 17.6999 20 18.3999 19.6 18.7999L18.8 19.6C18.4 20 17.8 20 17.3 19.7L16.2 18.9C15.5 19.3 14.7 19.7 13.9 19.9L13.7 21.2C13.6 21.7 13.1 22.1 12.6 22.1H11.5C10.9 22.1 10.5 21.7 10.4 21.2L10.2 19.9C9.4 19.7 8.6 19.4 7.9 18.9L6.8 19.7C6.4 20 5.7 20 5.3 19.6L4.5 18.7999C4.1 18.3999 4.1 17.7999 4.4 17.2999L5.2 16.2C4.8 15.5 4.4 14.7 4.2 13.9L2.9 13.7C2.4 13.6 2 13.1 2 12.6V11.5C2 10.9 2.4 10.5 2.9 10.4L4.2 10.2C4.4 9.39995 4.7 8.60002 5.2 7.90002L4.4 6.79993C4.1 6.39993 4.1 5.69993 4.5 5.29993L5.3 4.5C5.7 4.1 6.3 4.10002 6.8 4.40002L7.9 5.19995C8.6 4.79995 9.4 4.39995 10.2 4.19995L10.4 2.90002C10.5 2.40002 11 2 11.5 2H12.6C13.2 2 13.6 2.40002 13.7 2.90002L13.9 4.19995C14.7 4.39995 15.5 4.69995 16.2 5.19995L17.3 4.40002C17.7 4.10002 18.4 4.1 18.8 4.5L19.6 5.29993C20 5.69993 20 6.29993 19.7 6.79993L18.9 7.90002C19.3 8.60002 19.7 9.39995 19.9 10.2L21.2 10.4C21.7 10.5 22.1 11 22.1 11.5ZM12.1 8.59998C10.2 8.59998 8.6 10.2 8.6 12.1C8.6 14 10.2 15.6 12.1 15.6C14 15.6 15.6 14 15.6 12.1C15.6 10.2 14 8.59998 12.1 8.59998Z" fill="black" />
+                            <path d="M17.1 12.1C17.1 14.9 14.9 17.1 12.1 17.1C9.30001 17.1 7.10001 14.9 7.10001 12.1C7.10001 9.29998 9.30001 7.09998 12.1 7.09998C14.9 7.09998 17.1 9.29998 17.1 12.1ZM12.1 10.1C11 10.1 10.1 11 10.1 12.1C10.1 13.2 11 14.1 12.1 14.1C13.2 14.1 14.1 13.2 14.1 12.1C14.1 11 13.2 10.1 12.1 10.1Z" fill="black" />
+                        </svg>
+                    </span>
+                </div>
+                <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg menu-state-primary fw-bold py-4 fs-6 w-275px" data-kt-menu="true">
+                    <div class="menu-item px-3">
+                        <div class="menu-content d-flex align-items-center px-3">
+                            <div class="symbol symbol-50px me-5">
+                                <img alt="Logo" src="~/admin-side/demo3/dist/assets/media/avatars/150-26.jpg" />
+                            </div>
+                            <div class="d-flex flex-column">
+                                <div class="d-flex align-items-center" style="font-size:13px;">
+                                    @User.GetSpecificClaim("Email")
+                                </div>
+                                <a href="#" class="fw-bold text-muted text-hover-primary fs-7">@User.GetSpecificClaim("Sponsor")</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="separator my-2"></div>
+                    @if (User.GetSpecificClaim("RoleName") == "Customer")
+                    {
+                        <div class="menu-item px-5">
+                            <a href="/admin/profile/index" class="menu-link px-5">Profile</a>
+                        </div>
+                        <div class="menu-item px-5">
+                            <a href="/admin/transaction/index" class="menu-link px-5">Transaction</a>
+                        </div>
+                        <div class="menu-item px-5 my-1">
+                            <a href="/admin/network/index" class="menu-link px-5">Network</a>
+                        </div>
+                        <div class="menu-item px-5">
+                            <a href="/logout" class="menu-link px-5">Sign Out</a>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
